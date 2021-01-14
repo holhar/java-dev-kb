@@ -21,6 +21,7 @@
         <module>design-patterns</module>
         <module>algorithms</module>
         <module>data-structures</module>
+        <module>lang-features</module>
     </modules>
 
     <properties>
