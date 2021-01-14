@@ -22,6 +22,7 @@
         <module>algorithms</module>
         <module>data-structures</module>
         <module>lang-features</module>
+        <module>training</module>
     </modules>
 
     <properties>
