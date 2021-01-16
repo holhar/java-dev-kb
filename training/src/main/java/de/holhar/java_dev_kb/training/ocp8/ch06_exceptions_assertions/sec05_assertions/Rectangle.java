@@ -3,8 +3,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch06_exceptions_assertions.sec05_ass
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * Assertions can, should, and probably will be turned off in a production environment
  * They should be used in DEV env to validate:
  * - internal invariants

@@ -1,8 +1,6 @@
 package de.holhar.java_dev_kb.training.ocp8.ch06_exceptions_assertions.sec01_custom_exceptions;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * Common exception constructors.
  */
 public class CannotSwimException extends Exception {

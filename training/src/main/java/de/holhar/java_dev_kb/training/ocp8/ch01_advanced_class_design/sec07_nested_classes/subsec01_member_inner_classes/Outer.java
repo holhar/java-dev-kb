@@ -3,16 +3,14 @@ package de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec07_nes
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * A member inner class is a class defined at the same level as instance variables. It is not static. Often, this is
  * just referred to as an inner class without explicitly saying the type.
- * <p>
+ *
  * Benefits of inner classes in general:
  * - They can encapsulate helper classes by restricting them to the containing class
  * - They can make it easy to create a class that will be used in only one place
  * - They can make the code easier to read (but also harder...)
- * <p>
+ *
  * Member Inner Classes properties:
  * - Can be declared public, private, or protected or use default access
  * - Can extend any class and implement interfaces

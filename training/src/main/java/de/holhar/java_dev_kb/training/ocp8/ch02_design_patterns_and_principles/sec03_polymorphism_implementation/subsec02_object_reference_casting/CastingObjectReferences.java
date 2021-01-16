@@ -6,8 +6,6 @@ import de.holhar.java_dev_kb.training.ocp8.ch02_design_patterns_and_principles.s
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- *
  * Basic rules to keep in mind when casting variables:
  * 1. Casting an object from a subclass to a superclass doesn't require an explicit cast.
  * 2. Casting an object from a superclass to a subclass requires an explicit cast.

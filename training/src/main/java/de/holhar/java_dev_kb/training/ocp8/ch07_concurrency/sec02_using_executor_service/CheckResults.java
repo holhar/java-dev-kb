@@ -9,9 +9,6 @@ import java.util.concurrent.TimeoutException;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class CheckResults {
 
     private static int counter;

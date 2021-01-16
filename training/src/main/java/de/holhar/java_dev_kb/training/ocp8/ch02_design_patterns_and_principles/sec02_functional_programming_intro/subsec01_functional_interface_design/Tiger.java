@@ -4,9 +4,6 @@ import de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec03_virt
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class Tiger implements Sprint {
 
     @Override

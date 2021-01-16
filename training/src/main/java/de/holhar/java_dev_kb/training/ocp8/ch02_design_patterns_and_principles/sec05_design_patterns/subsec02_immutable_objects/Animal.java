@@ -3,9 +3,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch02_design_patterns_and_principles.
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author hhs@dasburo.com
- */
 public final class Animal {
 
     private final String species;

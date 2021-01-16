@@ -5,9 +5,6 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-/**
- * @author hhs@dasburo.com
- */
 public class ForkJoinActionExample extends RecursiveAction {
 
     private int start;

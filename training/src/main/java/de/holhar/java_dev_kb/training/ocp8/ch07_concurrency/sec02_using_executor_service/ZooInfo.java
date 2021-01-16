@@ -5,9 +5,6 @@ import java.util.concurrent.Executors;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class ZooInfo {
 
     public static void main(String[] args) {

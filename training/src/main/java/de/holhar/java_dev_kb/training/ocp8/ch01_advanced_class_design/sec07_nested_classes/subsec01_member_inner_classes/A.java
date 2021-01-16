@@ -2,9 +2,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec07_nes
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class A {
     private int x = 10;
 

@@ -13,9 +13,6 @@ import java.util.stream.Stream;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class Streams {
 
     public static void main(String[] args) {

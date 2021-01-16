@@ -3,10 +3,8 @@ package de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec07_nes
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * A local inner class is defined within a method.
- * <p>
+ *
  * Local Inner Classes properties:
  * - They do not have an access specifier
  * - They cannot be declared static and cannot declare static fields or methods

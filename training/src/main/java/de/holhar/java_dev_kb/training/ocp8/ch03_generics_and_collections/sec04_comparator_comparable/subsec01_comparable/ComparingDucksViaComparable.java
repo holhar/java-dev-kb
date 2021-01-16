@@ -6,9 +6,6 @@ import java.util.List;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class ComparingDucksViaComparable {
 
     public static void main(String[] args) {

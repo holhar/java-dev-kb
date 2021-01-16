@@ -2,9 +2,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch07_concurrency.sec01_threads_intro
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class CheckResultsWithSleep {
 
     private static int counter;

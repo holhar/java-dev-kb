@@ -1,8 +1,5 @@
 package de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec04_override_annotation;
 
-/**
- * @author hhs@dasburo.com
- */
 public class Bobcat {
     public void findDen() {
     }

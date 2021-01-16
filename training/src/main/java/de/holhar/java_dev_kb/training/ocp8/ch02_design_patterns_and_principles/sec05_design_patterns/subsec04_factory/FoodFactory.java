@@ -3,7 +3,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch02_design_patterns_and_principles.
 import de.holhar.java_dev_kb.training.ocp8.ch02_design_patterns_and_principles.sec05_design_patterns.subsec02_immutable_objects.Animal;
 
 /**
- * @author hhs@dasburo.com
  *
  * Ensures loose coupling between Animal and Food classes
  */

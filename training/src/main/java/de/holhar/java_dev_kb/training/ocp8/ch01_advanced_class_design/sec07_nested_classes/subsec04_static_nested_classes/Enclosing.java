@@ -3,10 +3,8 @@ package de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec07_nes
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * A static nested class is a static class that is defined at the same level as static variables.
- * <p>
+ *
  * Static Nested Classes properties:
  * - The nesting creates a namespace because the enclosing class name must be used to refer to it.
  * - It can be made private or use one of the other access modifiers to encapsulate it.

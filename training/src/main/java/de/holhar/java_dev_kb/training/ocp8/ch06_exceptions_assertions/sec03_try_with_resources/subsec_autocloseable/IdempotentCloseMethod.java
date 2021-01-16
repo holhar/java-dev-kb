@@ -1,8 +1,6 @@
 package de.holhar.java_dev_kb.training.ocp8.ch06_exceptions_assertions.sec03_try_with_resources.subsec_autocloseable;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * Java strongly recommends that close() not actually throw Exception. It is better to throw a more specific
  * exception. Java also recommends to make the close() method idemptent
  */

@@ -7,8 +7,6 @@ import java.time.format.DateTimeParseException;
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * It's a common pattern to log and then rethrow the same exception.
  */
 public class RethrowingExceptions {

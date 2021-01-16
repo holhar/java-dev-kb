@@ -4,9 +4,6 @@ import de.holhar.java_dev_kb.training.ocp8.ch03_generics_and_collections.sec02_g
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class GenericMethods {
 
     /*

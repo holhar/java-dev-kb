@@ -4,9 +4,6 @@ import de.holhar.java_dev_kb.training.ocp8.ch02_design_patterns_and_principles.s
 
 import java.util.Arrays;
 
-/**
- * @author hhs@dasburo.com
- */
 public class Zookeeper {
 
     public static void main(String[] args) {

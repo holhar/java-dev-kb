@@ -2,9 +2,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch02_design_patterns_and_principles.
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class Lemur extends Primate implements HasTail {
 
     public int age = 10;

@@ -6,9 +6,6 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * @author hhs@dasburo.com
- */
 public class UseTreeSet {
 
     static class Rabbit { int id; }

@@ -1,8 +1,5 @@
 package de.holhar.java_dev_kb.training.ocp8.ch03_generics_and_collections.sec04_comparator_comparable.subsec01_comparable;
 
-/**
- * @author hhs@dasburo.com
- */
 public class Duck implements Comparable<Duck> {
 
     private String name;

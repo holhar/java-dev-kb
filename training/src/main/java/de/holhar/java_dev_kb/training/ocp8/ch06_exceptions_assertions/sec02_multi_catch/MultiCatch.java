@@ -10,9 +10,6 @@ import java.time.format.DateTimeParseException;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class MultiCatch {
 
     public static void main(String[] args) {

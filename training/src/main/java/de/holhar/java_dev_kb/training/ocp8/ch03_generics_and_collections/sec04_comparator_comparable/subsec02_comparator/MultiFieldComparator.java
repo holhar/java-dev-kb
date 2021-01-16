@@ -2,9 +2,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch03_generics_and_collections.sec04_
 
 import java.util.Comparator;
 
-/**
- * @author hhs@dasburo.com
- */
 public class MultiFieldComparator implements Comparator<Squirrel> {
 
     /*

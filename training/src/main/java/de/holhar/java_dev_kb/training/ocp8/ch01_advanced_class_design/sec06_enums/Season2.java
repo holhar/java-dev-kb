@@ -2,9 +2,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch01_advanced_class_design.sec06_enu
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public enum Season2 {
 
     WINTER {

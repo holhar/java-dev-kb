@@ -3,8 +3,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch06_exceptions_assertions.sec03_try
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * Suppressed exceptions example
  */
 public class JammedTurkeyCage implements AutoCloseable {

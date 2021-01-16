@@ -3,9 +3,6 @@ package de.holhar.java_dev_kb.training.ocp8.ch03_generics_and_collections.sec02_
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author hhs@dasburo.com
- */
 public class LegacyAutoboxing {
 
     public static void main(String[] args) {

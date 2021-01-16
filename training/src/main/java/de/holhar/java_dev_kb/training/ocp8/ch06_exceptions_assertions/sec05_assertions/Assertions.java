@@ -3,15 +3,13 @@ package de.holhar.java_dev_kb.training.ocp8.ch06_exceptions_assertions.sec05_ass
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 /**
- * @author hhs@dasburo.com
- * <p>
  * General syntax:
  * - activate assertions only for specific packages (for all classes below 'demos'):
  * $ java -ea:de.holhar.demos... my.programs.Main
- * <p>
+ *
  * - activate assertions only for a specific class:
  * $ java -ea:de.holhar.demos.TestColors my.programs.Main
- * <p>
+ *
  * - disable assertions for specific packages or classes:
  * $ java -ea:de.holhar.demos... -da:.de.holhar.demos.TestColors my.programs.Main
  */

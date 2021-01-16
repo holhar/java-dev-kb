@@ -4,9 +4,6 @@ import java.util.*;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
-/**
- * @author hhs@dasburo.com
- */
 public class SortRabbits {
 
     static class Rabbit {
