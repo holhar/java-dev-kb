@@ -1,6 +1,8 @@
 package de.holhar.java_dev_kb.training.ocp8.ch05_dates_string_localization.subsec03_internationalization_localization;
 
 import de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.MessageFormat;
 import java.util.Locale;
@@ -10,6 +12,8 @@ import java.util.ResourceBundle;
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 public class UsingResourceBundles {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(UsingResourceBundles.class);
 
     public static void main(String[] args) {
         Locale us = new Locale("en", "US");
@@ -37,14 +41,14 @@ public class UsingResourceBundles {
         // Example of how properties get resolved:
         Locale locale = new Locale("en", "CA");
         ResourceBundle rb1 = ResourceBundle.getBundle("Zoo", locale);
-        System.out.print(rb1.getString("hello"));
-        System.out.print(". ");
-        System.out.print(rb1.getString("name"));
-        System.out.print(" - ");
-        System.out.print(rb1.getString("open"));
-        System.out.print(" ");
-        System.out.print(rb1.getString("visitor"));
-        System.out.print(" ");
+        LOGGER.debug(rb1.getString("hello"));
+        LOGGER.debug(". ");
+        LOGGER.debug(rb1.getString("name"));
+        LOGGER.debug(" - ");
+        LOGGER.debug(rb1.getString("open"));
+        LOGGER.debug(" ");
+        LOGGER.debug(rb1.getString("visitor"));
+        LOGGER.debug(" ");
         println("");
 
         // Handling variable inside resource bundles

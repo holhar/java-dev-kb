@@ -52,22 +52,22 @@ public class StreamBasics {
             is = new BufferedInputStream(new FileInputStream(getIoHome() + "buecher-liste.txt"));
             println("Is mark supported?: " + is.markSupported());
             // Marking the stream
-            print((char) is.read());
+            println((char) is.read());
             if (is.markSupported()) {
                 is.mark(100);
-                print((char) is.read());
-                print((char) is.read());
+                println((char) is.read());
+                println((char) is.read());
                 is.reset();
             }
-            print((char) is.read());
-            print((char) is.read());
-            print((char) is.read());
+            println((char) is.read());
+            println((char) is.read());
+            println((char) is.read());
 
             // Skipping over data
             is.skip(3);
             is.read();
-            print((char) is.read());
-            print((char) is.read());
+            println((char) is.read());
+            println((char) is.read());
         } catch (IOException e) {
             LOGGER.error("Could not read file", e);
         } finally {

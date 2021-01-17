@@ -1,18 +1,22 @@
 package de.holhar.java_dev_kb.katas.codewars.algorithms;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertArrayEquals;
 
 public class AirportArrivalsDepartures1Test {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(AirportArrivalsDepartures1Test.class);
+
     private String[] BEFORE(String[] a) {
-        System.out.println("Before:");
+        LOGGER.debug("Before:");
         return a;
     }
 
     private String[] AFTER(String[] a) {
-        System.out.println("After:");
+        LOGGER.debug("After:");
         return a;
     }
 

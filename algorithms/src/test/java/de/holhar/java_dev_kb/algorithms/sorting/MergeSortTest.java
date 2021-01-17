@@ -1,8 +1,9 @@
 package de.holhar.java_dev_kb.algorithms.sorting;
 
-import de.holhar.java_dev_kb.algorithms.sorting.MergeSort;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -12,12 +13,14 @@ import static org.junit.Assert.fail;
 
 public class MergeSortTest {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MergeSortTest.class);
+
     private final static int SIZE = 7;
     private final static int MAX = 20;
     private int[] numbers;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         numbers = new int[SIZE];
         Random generator = new Random();
         for (int i = 0; i < numbers.length; i++) {
@@ -34,7 +37,7 @@ public class MergeSortTest {
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("Mergesort " + elapsedTime);
+        LOGGER.debug("Mergesort {}", elapsedTime);
 
         for (int i = 0; i < numbers.length - 1; i++) {
             if (numbers[i] > numbers[i + 1]) {
@@ -70,7 +73,7 @@ public class MergeSortTest {
         Arrays.sort(numbers);
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("Standard Java sort " + elapsedTime);
+        LOGGER.debug("Standard Java sort {}", elapsedTime);
 
         for (int i = 0; i < numbers.length - 1; i++) {
             if (numbers[i] > numbers[i + 1]) {

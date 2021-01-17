@@ -1,11 +1,16 @@
 package de.holhar.java_dev_kb.training.ocp8.ch03_generics_and_collections.sec03_collections.subsec03_lists_sets_maps_queues;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Map;
 import java.util.TreeMap;
 
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 public class UsingMapInterface {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(UsingMapInterface.class);
 
     public static void main(String[] args) {
         Map<String, String> map = new TreeMap<>();
@@ -14,7 +19,7 @@ public class UsingMapInterface {
         map.put("giraffe", "leaf");
 
         for (String key : map.keySet())
-            System.out.print(key + ", "); // sorted: giraffe, koala, lion
+            LOGGER.debug("{}", key); // sorted: giraffe, koala, lion
 
         println(map.isEmpty());
         println(map.size());

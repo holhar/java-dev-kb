@@ -3,6 +3,8 @@ package de.holhar.java_dev_kb.katas.codewars.puzzles;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 public class InterfacingTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(InterfacingTest.class);
 
     private Random random;
     private List<String> names;
@@ -50,7 +54,7 @@ public class InterfacingTest {
         }
 
         // Huzzah!
-        System.out.println("Success!");
+        LOGGER.debug("Success!");
     }
 
     /* - Preparation - */

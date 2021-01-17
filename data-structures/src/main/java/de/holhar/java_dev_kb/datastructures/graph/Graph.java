@@ -1,11 +1,16 @@
 package de.holhar.java_dev_kb.datastructures.graph;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class Graph {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Graph.class);
 
     public GraphNode root;
     public ArrayList<GraphNode> nodes = new ArrayList<>();
@@ -104,6 +109,6 @@ public class Graph {
 
     // print the node's label
     private void printNode(GraphNode node) {
-        System.out.println(node.label + " ");
+        LOGGER.debug("{}", node.label);
     }
 }

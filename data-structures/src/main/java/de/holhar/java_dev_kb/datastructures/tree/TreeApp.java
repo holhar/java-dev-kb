@@ -1,8 +1,13 @@
 package de.holhar.java_dev_kb.datastructures.tree;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 public class TreeApp {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(TreeApp.class);
 
     @SuppressWarnings("resource")
     public static void main(String[] args) {
@@ -13,46 +18,46 @@ public class TreeApp {
         BinaryTree bt = new BinaryTree();
 
         /* Perform tree operations */
-        System.out.println("Binary Tree Test\n");
+        LOGGER.debug("Binary Tree Test\n");
         char ch;
 
         do {
-            System.out.println("\nBinary Tree Operations\n");
-            System.out.println("1. insert ");
-            System.out.println("2. search");
-            System.out.println("3. count nodes");
-            System.out.println("4. check empty");
+            LOGGER.debug("\nBinary Tree Operations\n");
+            LOGGER.debug("1. insert ");
+            LOGGER.debug("2. search");
+            LOGGER.debug("3. count nodes");
+            LOGGER.debug("4. check empty");
 
             int choice = scan.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println("Enter integer element to insert");
+                    LOGGER.debug("Enter integer element to insert");
                     bt.add(scan.nextInt());
                     break;
                 case 2:
-                    System.out.println("Enter integer element to search");
-                    System.out.println("Search result : " + bt.search(scan.nextInt()));
+                    LOGGER.debug("Enter integer element to search");
+                    LOGGER.debug("Search result : {}", bt.search(scan.nextInt()));
                     break;
                 case 3:
-                    System.out.println("Nodes = " + bt.countNodes());
+                    LOGGER.debug("Nodes = {}", bt.countNodes());
                     break;
                 case 4:
-                    System.out.println("Empty status = " + bt.isEmpty());
+                    LOGGER.debug("Empty status = {}", bt.isEmpty());
                     break;
                 default:
-                    System.out.println("Wrong Entry \n ");
+                    LOGGER.debug("Wrong Entry");
                     break;
             }
 
             /* Display tree */
-            System.out.print("\nPost order : ");
+            LOGGER.debug("Post order : ");
             bt.postOrder();
-            System.out.print("\nPre order : ");
+            LOGGER.debug("Pre order : ");
             bt.preOrder();
-            System.out.print("\nIn order : ");
+            LOGGER.debug("In order : ");
             bt.inOrder();
-            System.out.println("\n\nDo you want to continue (Type y or n) \n");
+            LOGGER.debug("Do you want to continue (Type y or n)");
 
             ch = scan.next().charAt(0);
         } while (ch == 'Y' || ch == 'y');

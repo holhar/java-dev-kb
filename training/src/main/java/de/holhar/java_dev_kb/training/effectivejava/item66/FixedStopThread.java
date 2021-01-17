@@ -30,7 +30,7 @@ public class FixedStopThread {
                 int i = 0;
                 while (!isStopRequested()) {
                     i++;
-                    System.out.print(i + ", ");
+                    LOGGER.debug(i + ", ");
                     if (i % 100 == 0)
                         LOGGER.debug("");
                 }

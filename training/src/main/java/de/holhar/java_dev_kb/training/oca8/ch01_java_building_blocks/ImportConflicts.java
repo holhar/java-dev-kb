@@ -6,8 +6,14 @@ package de.holhar.java_dev_kb.training.oca8.ch01_java_building_blocks;
 
 // COMPILES (explicit imports take precedence over wildcard imports):
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ImportConflicts {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ImportConflicts.class);
+
     public static void main(String[] args) {
-        System.out.println("It works!");
+        LOGGER.debug("It works!");
     }
 }

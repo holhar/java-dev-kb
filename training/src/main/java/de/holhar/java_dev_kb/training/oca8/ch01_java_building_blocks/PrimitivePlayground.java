@@ -1,16 +1,21 @@
 package de.holhar.java_dev_kb.training.oca8.ch01_java_building_blocks;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class PrimitivePlayground {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrimitivePlayground.class);
 
     public static void main(String[] args) {
         // long max = 3123456789; => too large for an integer - DOES NOT COMPILE
         long max = 3123456789L;
 
         // Valid usages of number systems
-        System.out.println(56);    // decimal
-        System.out.println(0b11);    // binary
-        System.out.println(017);    // octal
-        System.out.println(0x1F);    // hexadecimal
+        LOGGER.debug("{}", 56);      // decimal
+        LOGGER.debug("{}", 0b11);    // binary
+        LOGGER.debug("{}", 017);     // octal
+        LOGGER.debug("{}", 0x1F);    // hexadecimal
 
         // Invalid usages of underscores in numbers
         //double notAtStart = _1000:00;

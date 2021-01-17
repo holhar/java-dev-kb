@@ -1,5 +1,8 @@
 package de.holhar.java_dev_kb.training.oca8.ch01_java_building_blocks;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
@@ -13,9 +16,12 @@ import java.util.Random;
 // import java.nio.files.Paths.*; // you cannot import methods, only class names
 
 class ImportExample {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ImportExample.class);
+
     public static void main(String[] args) {
         Random r = new Random();
-        System.out.println(r.nextInt(10));
+        LOGGER.debug("{}", r.nextInt(10));
     }
 
     public void read(Files files) {

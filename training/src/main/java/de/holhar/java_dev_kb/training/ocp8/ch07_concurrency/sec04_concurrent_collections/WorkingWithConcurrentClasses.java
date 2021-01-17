@@ -1,5 +1,8 @@
 package de.holhar.java_dev_kb.training.ocp8.ch07_concurrency.sec04_concurrent_collections;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,6 +22,8 @@ import java.util.concurrent.TimeUnit;
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 public class WorkingWithConcurrentClasses {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(WorkingWithConcurrentClasses.class);
 
     public static void main(String[] args) {
 
@@ -71,7 +76,7 @@ public class WorkingWithConcurrentClasses {
         // CopyOnWriteArrayList
         List<Integer> list1 = new CopyOnWriteArrayList<>(Arrays.asList(4, 3, 52));
         for (Integer item : list1) {
-            System.out.print(item + " ");
+            LOGGER.debug("{}", item);
             list1.add(9);
         }
         println("");
@@ -81,7 +86,7 @@ public class WorkingWithConcurrentClasses {
         List<Integer> list2 = Collections.synchronizedList(new ArrayList<>(Arrays.asList(4, 3, 52)));
         synchronized (list2) {
             for (int data : list2) {
-                System.out.print(data + " ");
+                LOGGER.debug("{}", data);
             }
         }
 

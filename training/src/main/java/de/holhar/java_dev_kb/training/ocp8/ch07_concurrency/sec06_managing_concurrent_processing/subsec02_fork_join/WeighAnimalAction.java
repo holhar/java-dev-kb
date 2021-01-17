@@ -1,5 +1,8 @@
 package de.holhar.java_dev_kb.training.ocp8.ch07_concurrency.sec06_managing_concurrent_processing.subsec02_fork_join;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
@@ -9,6 +12,8 @@ import java.util.concurrent.RecursiveAction;
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 public class WeighAnimalAction extends RecursiveAction {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(WeighAnimalAction.class);
 
     /*
      * The arguments on which the ForkJoinTask will operate.
@@ -38,7 +43,7 @@ public class WeighAnimalAction extends RecursiveAction {
 
         println("");
         println("Weights: ");
-        Arrays.asList(weights).forEach(weight -> System.out.print(weight + ", "));
+        Arrays.asList(weights).forEach(weight -> LOGGER.debug("{}", weight));
     }
 
     /*

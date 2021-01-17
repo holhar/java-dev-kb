@@ -200,7 +200,7 @@ class MyClass {
     public static void main(String[] args) {
         for (Iterator<Face> i = faces.iterator(); i.hasNext(); )
             for (Iterator<Face> j = faces.iterator(); j.hasNext(); )
-                System.out.printlm(i.next() + " " + j.next());
+                LOGGER.debuglm(i.next() + " " + j.next());
     }
 }
 ```

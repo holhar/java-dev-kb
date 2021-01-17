@@ -1,6 +1,11 @@
 package de.holhar.java_dev_kb.datastructures.graph;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class GraphApp {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GraphApp.class);
 
     public static void main(String[] args) {
         //Lets create GraphNodes as given as an example in the article
@@ -31,10 +36,10 @@ public class GraphApp {
 
 
         //Perform the traversal of the graph
-        System.out.println("DFS Traversal of a tree is ------------->");
+        LOGGER.debug("DFS Traversal of a tree is ------------->");
         g.dfs();
 
-        System.out.println("\nBFS Traversal of a tree is ------------->");
+        LOGGER.debug("\nBFS Traversal of a tree is ------------->");
         g.bfs();
     }
 }

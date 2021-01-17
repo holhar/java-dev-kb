@@ -1,11 +1,16 @@
 package de.holhar.java_dev_kb.training.ocp8.special_interest.patterns;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
 public class ForkJoinTaskExample extends RecursiveTask<Double> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ForkJoinTaskExample.class);
 
     private Double[] weights;
     private int start;
@@ -23,7 +28,7 @@ public class ForkJoinTaskExample extends RecursiveTask<Double> {
         ForkJoinPool pool = new ForkJoinPool();
         Double sum = pool.invoke(task);
 
-        System.out.println("Weighed all animals: " + sum);
+        LOGGER.debug("Weighed all animals: {}", sum);
     }
 
     @Override
@@ -32,7 +37,7 @@ public class ForkJoinTaskExample extends RecursiveTask<Double> {
         if (end - start <= 3) {
             for (int i = start; i < end; i++) {
                 weights[i] = (double) new Random().nextInt(100);
-                System.out.println("Weighed animal no. " + i + ", with weight: " + weights[i]);
+                LOGGER.debug("Weighed animal no. {}, with weight: {}", i,  weights[i]);
                 sum += weights[i];
             }
         } else {

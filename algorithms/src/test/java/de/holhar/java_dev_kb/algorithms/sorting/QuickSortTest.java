@@ -1,8 +1,9 @@
 package de.holhar.java_dev_kb.algorithms.sorting;
 
-import de.holhar.java_dev_kb.algorithms.sorting.QuickSort;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -11,6 +12,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class QuickSortTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(QuickSortTest.class);
 
     private final static int SIZE = 7;
     private final static int MAX = 20;
@@ -59,7 +62,7 @@ public class QuickSortTest {
     @Test
     public void testQuickSort() {
         for (Integer i : numbers) {
-            System.out.println(i + " ");
+            LOGGER.debug(i + " ");
         }
         long startTime = System.currentTimeMillis();
 
@@ -68,7 +71,7 @@ public class QuickSortTest {
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("QuickSort " + elapsedTime);
+        LOGGER.debug("QuickSort " + elapsedTime);
 
         if (!validate(numbers)) {
             fail("Should not happen");
@@ -82,7 +85,7 @@ public class QuickSortTest {
         Arrays.sort(numbers);
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("Standard Java sort " + elapsedTime);
+        LOGGER.debug("Standard Java sort " + elapsedTime);
         if (!validate(numbers)) {
             fail("Should not happen");
         }
@@ -100,8 +103,7 @@ public class QuickSortTest {
 
     private void printResult(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i]);
+            LOGGER.debug("{}", numbers[i]);
         }
-        System.out.println();
     }
 }

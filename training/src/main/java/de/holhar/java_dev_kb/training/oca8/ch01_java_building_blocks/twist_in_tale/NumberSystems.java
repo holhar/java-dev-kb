@@ -1,6 +1,11 @@
 package de.holhar.java_dev_kb.training.oca8.ch01_java_building_blocks.twist_in_tale;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class NumberSystems {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(NumberSystems.class);
 
     public static void main(String args[]) {
         int baseDecimal = 267;
@@ -8,8 +13,8 @@ public class NumberSystems {
         int hexVal = 0x10B; // 267
         int binVal = 0b100001011; // 267
 
-        System.out.println(baseDecimal + octVal); // should print 534
-        System.out.println(hexVal + binVal); // should print 534
+        LOGGER.debug("{}", baseDecimal + octVal); // should print 534
+        LOGGER.debug("{}", hexVal + binVal); // should print 534
     }
 
     private void correctUsageOfUnderscores() {

@@ -1,6 +1,8 @@
 package de.holhar.java_dev_kb.training.ocp8.ch07_concurrency.sec05_parallel_streams;
 
 import de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +18,8 @@ import java.util.stream.Stream;
 import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 public class ParallelStreamExamples {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ParallelStreamExamples.class);
 
     public static void main(String[] args) {
 
@@ -37,10 +41,10 @@ public class ParallelStreamExamples {
                     data.add(i);
                     return i;
                 }) // AVOID STATEFUL LAMBDA EXPRESSIONS!
-                .forEachOrdered(i -> System.out.print(i + " "));
+                .forEachOrdered(i -> LOGGER.debug("{}", i));
         println("");
         for (Integer i : data) {
-            System.out.print(i + " ");
+            LOGGER.debug("{}", i);
         }
         println("");
 

@@ -1,5 +1,8 @@
 package de.holhar.java_dev_kb.training.ocp8.ch04_functional_programming.subsec01_build_in_functional_interfaces;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +21,8 @@ import static de.holhar.java_dev_kb.training.ocp8.utils.OcpPrepUtils.println;
 
 public class BuiltInFunctionalInterfaces {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(BuiltInFunctionalInterfaces.class);
+
     public static void main(String[] args) {
 
         // Implementing Supplier - is used when you want to generate or supply values without taking any input
@@ -31,8 +36,8 @@ public class BuiltInFunctionalInterfaces {
         println(a1);
 
         // Implementing Consumer and BiConsumer - used when you want to do something with a parameter but not return anything
-        Consumer<String> c1 = System.out::println;
-        Consumer<String> c2 = x -> System.out.println(x);
+        Consumer<String> c1 = LOGGER::debug;
+        Consumer<String> c2 = LOGGER::debug;
         c1.accept("Annie");
         c2.accept("Annie");
 

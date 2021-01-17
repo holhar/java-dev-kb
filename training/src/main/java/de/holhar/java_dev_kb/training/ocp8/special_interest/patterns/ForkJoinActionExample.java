@@ -1,11 +1,16 @@
 package de.holhar.java_dev_kb.training.ocp8.special_interest.patterns;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
 public class ForkJoinActionExample extends RecursiveAction {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ForkJoinActionExample.class);
 
     private int start;
     private int end;
@@ -23,7 +28,7 @@ public class ForkJoinActionExample extends RecursiveAction {
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
 
-        System.out.println("Weighed all animals");
+        LOGGER.debug("Weighed all animals");
     }
 
     @Override
@@ -31,11 +36,11 @@ public class ForkJoinActionExample extends RecursiveAction {
         if (end - start <= 3) {
             for (int i = start; i < end; i++) {
                 weights[i] = (double) new Random().nextInt(100);
-                System.out.println("Weighed an animal no. " + i + " with: " + weights[i]);
+                LOGGER.debug("Weighed an animal no. {} with: {}", i, weights[i]);
             }
         } else {
             int middle = start + ((end - start) / 2);
-            System.out.println("start[" + start + "], middle[" + middle + "], end[" + end + "]");
+            LOGGER.debug("start[{}], middle[{}], end[{}]", start, middle, end);
             invokeAll(new ForkJoinActionExample(weights, start, middle),
                     new ForkJoinActionExample(weights, middle, end));
         }

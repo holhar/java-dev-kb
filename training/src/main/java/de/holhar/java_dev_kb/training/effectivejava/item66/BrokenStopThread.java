@@ -21,7 +21,7 @@ public class BrokenStopThread {
                 int i = 0;
                 while (!stopRequested) {
                     i++;
-                    System.out.print(i + ", ");
+                    LOGGER.debug(i + ", ");
                     if (i % 100 == 0)
                         LOGGER.debug("");
                 }

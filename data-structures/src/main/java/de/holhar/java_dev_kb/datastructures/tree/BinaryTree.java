@@ -1,5 +1,8 @@
 package de.holhar.java_dev_kb.datastructures.tree;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class BinaryTree {
 
     TreeNode root;
@@ -60,6 +63,8 @@ public class BinaryTree {
 
 class TreeNode {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(TreeNode.class);
+
     int element;
     TreeNode left;
     TreeNode right;
@@ -107,14 +112,14 @@ class TreeNode {
     public void inOrder() {
         if (left != null)
             left.inOrder();
-        System.out.print(element + " ");
+        LOGGER.debug("{}", element);
         if (right != null)
             right.inOrder();
     }
 
     // each node is processed before either of its sub-trees
     public void preOrder() {
-        System.out.print(element + " ");
+        LOGGER.debug("{}", element);
         if (left != null)
             left.preOrder();
         if (right != null)
@@ -127,6 +132,6 @@ class TreeNode {
             left.postOrder();
         if (right != null)
             right.postOrder();
-        System.out.print(element + " ");
+        LOGGER.debug("{}", element);
     }
 }
