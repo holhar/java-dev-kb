@@ -3,6 +3,8 @@ package de.holhar.java_dev_kb.katas.codewars.algorithms.strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+
 /**
  * Strip Comments (https://www.codewars.com/kata/51c8e37cee245da6b40000bd)
  * <p>
@@ -37,13 +39,10 @@ public class StripComments {
     private StripComments() {}
 
     public static String stripComments(String text, String[] commentSymbols) {
-        StringBuilder symbols = new StringBuilder();
-        for (String c : commentSymbols) {
-            symbols.append(c);
-        }
-        LOGGER.debug("symbols {}", symbols);
-        String result = text.replaceAll("\\s*[" + symbols.toString() + "][^$\\n]*|\\s+[^\\w]", "");
-        LOGGER.debug(result);
+        String symbols = Arrays.stream(commentSymbols).reduce("", (s1, s2) -> s1 + "\\" + s2);
+        LOGGER.debug("symbols: '{}', text: '{}'", symbols, text);
+        String result = text.replaceAll("\\s?[" + symbols + "].*?|\\s?$", "");
+        LOGGER.debug("result: '{}'", result);
         return result;
     }
 }
