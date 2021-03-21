@@ -1,21 +1,30 @@
-package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety;
+package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.atomicity;
 
-import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;
+import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
+import de.holhar.java_dev_kb.training.concurrency.utils.NotThreadSafe;
 
 import javax.servlet.*;
 import java.io.IOException;
 import java.math.BigInteger;
 
 /**
- * A stateless servlet.
+ * Servlet that counts requests without the necessary synchronization.
+ * Don't do this.
  */
-@ThreadSafe
-public class StatelessFactorizer extends AbstractFactorizer implements Servlet {
+@NotThreadSafe
+public class UnsafeCountingFactorizer extends AbstractFactorizer implements Servlet {
+
+    private long count = 0;
+
+    public long getCount() {
+        return count;
+    }
 
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         BigInteger i = extractFromRequest(request);
         BigInteger[] factors = factor(i);
+        ++count; // <-- non-atomic operation
         encodeIntoResponse(response, factors);
     }
 
