@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.locking;
+package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s3_locking;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

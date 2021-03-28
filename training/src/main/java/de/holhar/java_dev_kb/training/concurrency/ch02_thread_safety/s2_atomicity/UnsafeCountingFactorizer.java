@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.locking;
+package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_atomicity;
 
 import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
 import de.holhar.java_dev_kb.training.concurrency.utils.NotThreadSafe;
@@ -6,29 +6,26 @@ import de.holhar.java_dev_kb.training.concurrency.utils.NotThreadSafe;
 import javax.servlet.*;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * Servlet that attempts to cache its last result without adequate atomicity,
+ * Servlet that counts requests without the necessary synchronization.
  * Don't do this.
  */
 @NotThreadSafe
-public class UnsafeCachingFactorizer extends AbstractFactorizer implements Servlet {
+public class UnsafeCountingFactorizer extends AbstractFactorizer implements Servlet {
 
-    private final AtomicReference<BigInteger> lastNumber = new AtomicReference<>();
-    private final AtomicReference<BigInteger[]> lastFactors = new AtomicReference<>();
+    private long count = 0;
+
+    public long getCount() {
+        return count;
+    }
 
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         BigInteger i = extractFromRequest(request);
-        if (i.equals(lastNumber.get())) {
-            encodeIntoResponse(response, lastFactors.get());
-        } else {
-            BigInteger[] factors = factor(i);
-            lastNumber.set(i);
-            lastFactors.set(factors);
-            encodeIntoResponse(response, factors);
-        }
+        BigInteger[] factors = factor(i);
+        ++count; // <-- non-atomic operation
+        encodeIntoResponse(response, factors);
     }
 
     @Override

@@ -37,7 +37,7 @@ same state.
 
 Where practical, use existing thread-safe objects, like *AtomicLong*, to manage your class's state.
 It is simpler to reason about the possible states and state transitions for existing thread-safe objects than it is 
-for arbitrary state variables, and this makes it easier to maintain and verify thread safety (see *de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.atomicity.CountingFactorizer*).
+for arbitrary state variables, and this makes it easier to maintain and verify thread safety (see *de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_atomicity.CountingFactorizer*).
 
 ## Locking
 
@@ -68,4 +68,4 @@ compromising safety) for the sake of performance.
 ----
 
 Avoid holding locks during lenghty computations or operations at risk of not completing quickly such as network or 
-console I/O (see de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.liveness_performance.CachedFactorizer).
+console I/O (see de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s5_liveness_performance.CachedFactorizer).

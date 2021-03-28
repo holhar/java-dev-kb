@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.liveness_performance;
+package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s5_liveness_performance;
 
 import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
 import de.holhar.java_dev_kb.training.concurrency.utils.GuardedBy;

@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.locking;
+package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s3_locking;
 
 import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
 import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;

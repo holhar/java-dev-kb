@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.atomicity;
+package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_atomicity;
 
 import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
 import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;
