@@ -1,6 +1,6 @@
 package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s6_building_a_cache;
 
-import de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.utils.ExceptionUtils;
+import de.holhar.java_dev_kb.training.concurrency.utils.ExceptionUtils;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;

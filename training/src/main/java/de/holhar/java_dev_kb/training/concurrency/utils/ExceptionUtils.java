@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.utils;
+package de.holhar.java_dev_kb.training.concurrency.utils;
 
 public class ExceptionUtils {
 
