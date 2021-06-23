@@ -1,7 +1,7 @@
 package de.holhar.java_dev_kb.katas.codewars.algorithms.strings;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * Strip Comments (https://www.codewars.com/kata/51c8e37cee245da6b40000bd)
@@ -28,22 +28,31 @@ import org.slf4j.LoggerFactory;
  * var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
  * // result should == "apples, pears\ngrapes\nbananas"
  * <p>
- * TODO finish me!
  */
 public class StripComments {
-    
-    private static final Logger LOGGER = LoggerFactory.getLogger(StripComments.class);
     
     private StripComments() {}
 
     public static String stripComments(String text, String[] commentSymbols) {
-        StringBuilder symbols = new StringBuilder();
-        for (String c : commentSymbols) {
-            symbols.append(c);
+        return Arrays.stream(text.split("\\n"))
+                .map(line -> stripComment(line, commentSymbols))
+                .collect(Collectors.joining("\n"));
+    }
+
+    private static String stripComment(String line, String[] commentSymbols) {
+        var matches = false;
+        var symbol = "";
+        for (String s : commentSymbols) {
+            if (line.contains(s)) {
+                matches = true;
+                symbol = s;
+                break;
+            }
         }
-        LOGGER.debug("symbols {}", symbols);
-        String result = text.replaceAll("\\s*[" + symbols.toString() + "][^$\\n]*|\\s+[^\\w]", "");
-        LOGGER.debug(result);
-        return result;
+        if (matches) {
+            return line.substring(0, line.indexOf(symbol)).trim();
+        } else {
+            return line.isBlank() ? "" : line.replaceAll("(\\w)\\s+$", "$1");
+        }
     }
 }
