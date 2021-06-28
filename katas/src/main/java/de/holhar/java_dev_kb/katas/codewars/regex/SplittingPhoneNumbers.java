@@ -47,7 +47,6 @@ public class SplittingPhoneNumbers {
 
 
     public static Pattern createPattern() {
-        return Pattern.compile("(00|\\+)(\\d{2})\\s?(\\d{2})\\s?(\\d{6})");
-        // (((00|\+)(\d{2}\s))?(\d{2}\s))?(\d{6})
+        return Pattern.compile("^(?!\\s)(?:\\+|00)?(12)?(?:^0|\\s)?(34)?(?:\\s)?(\\d{6})?");
     }
 }

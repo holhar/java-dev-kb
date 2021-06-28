@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import java.util.regex.Matcher;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @Ignore
 public class SplittingPhoneNumbersTest {
@@ -20,10 +19,33 @@ public class SplittingPhoneNumbersTest {
     }
 
     @Test
-    public void fullNumberTest() {
+    public void fullNumberTest00() {
         assertNumber("+12 34 567890", "12", "34", "567890");
     }
 
+    @Test
+    public void fullNumberTest01() {
+        assertNumber("0012 34 567890", "12", "34", "567890");
+    }
+
+    @Test
+    public void fullNumberTest02() {
+        assertNumber("034 567890", null, "34", "567890");
+    }
+
+    @Test
+    public void fullNumberTest03() {
+        assertNumber("567890", null, null, "567890");
+    }
+
+    @Test
+    public void fullNumberTest04() {
+        var number = " 567890";
+        Matcher m = SplittingPhoneNumbers.createPattern().matcher(number);
+        assertFalse(m.matches());
+    }
+
+    /*
     @Test
     public void fullNumberTest1() {
         assertNumber("0001 34 567890", "12", "34", "567890");
@@ -63,4 +85,5 @@ public class SplittingPhoneNumbersTest {
     public void fullNumberTest8() {
         assertNumber("098765", "12", "34", "567890");
     }
+    */
 }
