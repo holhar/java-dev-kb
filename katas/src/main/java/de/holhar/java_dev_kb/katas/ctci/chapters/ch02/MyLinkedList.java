@@ -7,23 +7,93 @@ import java.util.Optional;
  */
 public class MyLinkedList<E> {
 
-    public static class Node<E> {
-
-    }
-
     /*
      * Basic implementation
      */
+    public static class Node<E> {
+
+        private Node<E> next;
+        private final E data;
+
+        public Node (E data) {
+            this.data = data;
+        }
+
+        public E getData() {
+            return data;
+        }
+
+        public void setNext(Node<E> next) {
+            this.next = next;
+        }
+
+        public Node<E> getNext() {
+            return next;
+        }
+    }
+
+    private Node<E> head;
+    private int size;
+
+    public int size() {
+        return size;
+    }
+
     public void add(E data) {
-        return;
+        if (head == null) {
+            head = new Node<>(data);
+            size++;
+            return;
+        }
+
+        Node<E> end = head;
+        while (end.getNext() != null) {
+            end = end.getNext();
+        }
+        end.next = new Node<>(data);
+        size++;
     }
 
     public E get(int index) {
-        return null;
+        if (index == 0) {
+            return head != null ? head.getData() : null;
+        }
+        var counter = 0;
+        Node<E> n = head;
+        Node<E> result = null;
+        do {
+            counter++;
+            n = n.getNext();
+            if (counter == index) {
+                result = n;
+                break;
+            }
+        } while (n.getNext() != null);
+        return result != null ? result.getData() : null;
     }
 
     public void delete(int index) {
-        return;
+        Node<E> n = head;
+        if (index == 0) {
+            head = n.getNext();
+            size--;
+            return;
+        }
+
+        var counter = 0;
+        while (n.getNext() != null) {
+            if (counter + 1 == index) {
+                if (n.getNext().getNext() != null) {
+                    n.setNext(n.getNext().getNext());
+                } else {
+                    n.setNext(null);
+                }
+                size--;
+                break;
+            }
+            counter++;
+            n = n.getNext();
+        }
     }
 
     /*
