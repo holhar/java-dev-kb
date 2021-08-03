@@ -7,12 +7,13 @@ import java.util.Optional;
  */
 public class MyLinkedList<E> {
 
-    /*
-     * Basic implementation
-     */
     public static class Node<E> {
 
     }
+
+    /*
+     * Basic implementation
+     */
     public void add(E data) {
         return;
     }
