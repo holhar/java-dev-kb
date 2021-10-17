@@ -5,22 +5,53 @@ package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
  */
 public class QueueViaStacks<E extends Comparable<E>> {
 
+    private final MyStack<E> leader = new MyStack<>();
+    private final MyStack<E> bucket = new MyStack<>();
+
     public void add(E data) {
+        leader.push(data);
     }
 
     public E peek() {
-        return null;
+        if (leader.isEmpty()) {
+            return null;
+        }
+        pushToBucket();
+        E data = bucket.peek();
+        pushToLeader();
+        return data;
     }
 
     public E getLast() {
-        return null;
+        if (leader.isEmpty()) {
+            return null;
+        }
+        return leader.peek();
     }
 
     public E remove() {
-        return null;
+        if (leader.isEmpty()) {
+            return null;
+        }
+        pushToBucket();
+        E data = bucket.pop();
+        pushToLeader();
+        return data;
     }
 
     public boolean isEmpty() {
-        return false;
+        return leader.isEmpty();
+    }
+
+    private void pushToBucket() {
+        while (!leader.isEmpty()) {
+            bucket.push(leader.pop());
+        }
+    }
+
+    private void pushToLeader() {
+        while (!bucket.isEmpty()) {
+            leader.push(bucket.pop());
+        }
     }
 }
