@@ -1,0 +1,42 @@
+<web-app id="WebApp_ID" version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <!--
+        Chapter 1: IoC, DI and Spring Container; Question 1.4: ApplicationContext creation
+        Servlet 2 standard requires a web.xml file located in WEB-INF and a Spring XML configuration file, also
+        located in WEB-INF for setting up the application context
+    -->
+    <display-name>SpringWebServlet2</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/springservlet2-config.xml</param-value>
+    </context-param>
+
+    <!--
+        ContextLoaderListener creates root Spring web application context
+    -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!--
+        SpringDispatcherServlet config enables the application to process requests
+    -->
+    <servlet>
+        <servlet-name>SpringDispatcherServlet</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SpringDispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>

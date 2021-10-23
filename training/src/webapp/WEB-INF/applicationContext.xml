@@ -1,0 +1,15 @@
+<!--
+    XML file based Spring application context configuration
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="someBeanOne" class="de.holhar.java_dev_kb.training.pcps.ch01_container.s0104_application_context.config.SomeBeanOne" >
+    </bean>
+
+    <bean id="someBeanTwo" class="de.holhar.java_dev_kb.training.pcps.ch01_container.s0104_application_context.config.SomeBeanTwo" >
+    </bean>
+
+</beans>
