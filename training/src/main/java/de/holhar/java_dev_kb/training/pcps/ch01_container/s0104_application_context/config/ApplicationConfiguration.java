@@ -8,11 +8,15 @@ public class ApplicationConfiguration {
 
     @Bean
     public SomeBeanOne someBeanOne() {
-        return new SomeBeanOne();
+        final SomeBeanOne someBeanOne = new SomeBeanOne();
+        someBeanOne.setName("someBeanOne");
+        return someBeanOne;
     }
 
     @Bean
     public SomeBeanTwo someBeanTwo() {
-        return new SomeBeanTwo();
+        final SomeBeanTwo someBeanTwo = new SomeBeanTwo();
+        someBeanTwo.setName("someBeanTwo");
+        return someBeanTwo;
     }
 }
