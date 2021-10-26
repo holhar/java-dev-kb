@@ -20,7 +20,7 @@ import javax.annotation.PreDestroy;
  * 3. Bean definition processing (beans are further processed by other beans that implement BeanFactoryPostProcessor)
  * 4. Bean instantiation
  * 5. Dependency injection
- * 6. Bean processing
+ * 6. Bean processing (beans are further processed by implementing BeanPostProcessor)
  * 6.a. bean post process beans are invoked before initialization
  * 6.b. beans are initialized
  * 6.c. bean post process beans are invoked after initialization

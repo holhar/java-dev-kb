@@ -1,9 +1,7 @@
-package de.holhar.java_dev_kb.training.pcps.ch01_container.s0108_di_and_bean_scopes;
+package de.holhar.java_dev_kb.training.pcps.ch01_container.s0108_di_and_bean_scopes_and_s0113_component_scanning;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.WebApplicationContext;
 
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // <- a single bean instance is created per Spring container (DEFAULT)
 // @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // <- every time the bean is requested, a new instance is created

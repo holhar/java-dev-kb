@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch01_container.s0108_di_and_bean_scopes;
+package de.holhar.java_dev_kb.training.pcps.ch01_container.s0108_di_and_bean_scopes_and_s0113_component_scanning;
 
 import de.holhar.java_dev_kb.training.pcps.ch01_container.s0104_application_context.config.ApplicationConfiguration;
 import org.springframework.context.annotation.Bean;

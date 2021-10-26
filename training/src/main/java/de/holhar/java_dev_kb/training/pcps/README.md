@@ -38,7 +38,7 @@ guide of [VMware Pivotal Labs](https://d1fto35gcfffzn.cloudfront.net/academy/Spr
 
 1.9 Are beans lazily or eagerly instantiated by default? How do you alter this behavior?
 
-1.10 What is a property source?  How would you use @PropertySource?
+1.10 What is a property source? How would you use @PropertySource?
 
 1.11 What is a BeanFactoryPostProcessor and what is it used for? When is it invoked?
 
