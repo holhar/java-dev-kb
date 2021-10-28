@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch01_container.s0114_autowired_s0115_qualifier_s0117_bean;
+package de.holhar.java_dev_kb.training.pcps.ch01_container.s0114_autowired_s0115_qualifier_s0117_s0118_beans;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ public class AutowiredConfiguration {
 
     /**
      * @Bean indicates that a method produces a bean to be managed by the Spring container.
-     * initMethod and destroyMethod are configurable
+     * initMethod and destroyMethod are configurable within @Bean annotation
      *
      * Bean Names - While a name attribute is available, the default strategy for determining the name of a bean is to
      * use the name of the @Bean method. This is convenient and intuitive, but if explicit naming is desired, the

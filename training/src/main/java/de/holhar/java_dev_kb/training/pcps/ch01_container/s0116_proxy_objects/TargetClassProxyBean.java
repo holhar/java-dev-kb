@@ -1,6 +1,5 @@
 package de.holhar.java_dev_kb.training.pcps.ch01_container.s0116_proxy_objects;
 
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
