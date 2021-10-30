@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch01_container.s0125_SpEL;
+package de.holhar.java_dev_kb.training.pcps.ch01_container.s0125_SpEL_s0128_SpEL_references;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-@SpringBootApplication(scanBasePackages = "de.holhar.java_dev_kb.training.pcps.ch01_container.s0125_SpEL")
+@SpringBootApplication(scanBasePackages = "de.holhar.java_dev_kb.training.pcps.ch01_container.s0125_SpEL_s0128_SpEL_references")
 public class SpELApplication {
 
     @Autowired
@@ -87,6 +87,16 @@ public class SpELApplication {
         // - Collection selection expressions
         // - Collection projection
         // - Expression templating
+
+        /*
+         * SpEL can reference:
+         * - Static methods and static properties/fields
+         * - Properties and methods in Spring beans
+         * - Properties and methods in Java objects with references stored in SpEL variables
+         * - (JVM) system properties
+         * - System environment properties
+         * - Spring application environment
+         */
     }
 
     static class MySpELContext {

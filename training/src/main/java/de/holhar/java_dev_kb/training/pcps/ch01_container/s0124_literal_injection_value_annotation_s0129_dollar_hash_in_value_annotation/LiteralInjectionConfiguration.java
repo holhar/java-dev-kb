@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch01_container.s0124_literal_injection_value_annotation;
+package de.holhar.java_dev_kb.training.pcps.ch01_container.s0124_literal_injection_value_annotation_s0129_dollar_hash_in_value_annotation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 import javax.annotation.PostConstruct;
 
@@ -28,12 +29,18 @@ public class LiteralInjectionConfiguration {
      * A common use case is to assign default field values using "#{systemProperties.myProp}" style expressions.
      * Note that actual processing of the @Value annotation is performed by a BeanPostProcessor which in turn means
      * that you cannot use @Value within BeanPostProcessor or BeanFactoryPostProcessor types.
+     *
+     * NOTE: Expression starting with $ - references a property name in application environment (evaluated by
+     * {@link org.springframework.context.support.PropertySourcesPlaceholderConfigurer})
      */
     @Value("${timeout.initial:${timeout.fallback}}")
     private int timeoutMillis;
 
     /**
      * Injecting a value that results from a SpEl expression
+     *
+     * NOTE: Expression starting with # - a dedicated SpEL expression parsed by {@link SpelExpressionParser} and
+     * evaluated by SpEL expression instance
      */
     @Value("#{ T(java.lang.Math).random() * 50.0 }")
     private double randomDouble;
