@@ -19,8 +19,12 @@ public class ExampleService {
      * A Joinpoint is a point during the execution of a program, such as the execution of a method or the handling of an exception.
      * In Spring AOP, a JoinPoint always represents a method execution.
      */
-    public void doSomething() {
+    public String doSomething(String value, int number) {
         logger.info("Doing something");
+        if (number % 2 == 0) {
+            throw new IllegalArgumentException("Something terrible happened");
+        }
+        return "doSomethingReturnValue";
     }
 
     public void doSomethingDifferent() {

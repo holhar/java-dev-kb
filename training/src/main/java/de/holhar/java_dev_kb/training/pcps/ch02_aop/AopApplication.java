@@ -8,6 +8,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication(scanBasePackages = "de.holhar.java_dev_kb.training.pcps.ch02_aop")
+/**
+ * EnableAspectJAutoProxy annotation enables support for handling Spring beans that are annotated with AspectJ's
+ * @Aspect annotation
+ */
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class AopApplication {
 
@@ -20,7 +24,8 @@ public class AopApplication {
 
     @PostConstruct
     private void init() {
-        service.doSomething();
+        int number = (int) (Math.random()*100);
+        service.doSomething("foobar", number);
         service.doSomethingDifferent();
     }
 }
