@@ -50,6 +50,50 @@ public class Aspects {
      */
 
     /**
+     * Basic structure of pointcut expression:
+     * - [designator] [pattern]
+     * - e.g. "execution(* de..*Service.*(..)"
+     *
+     * Pointcuts are combinable by logical operators:
+     * - '!' - Not; negates the pointcut expression
+     * - '&&' - And; logical and of pointcut expressions
+     * - '||' - Or; logical or of pointcut expressions
+     *
+     * Designators:
+     * - execution (matches method execution joinPoints); pattern (some pattern parts are negatable):
+     * -- [(!)method visibility] [(!)return type] [package].[class].[method]([parameters] [(!)throws exceptions])
+     *
+     * - within (matches joinPoints located in one or more classes - packages are optional); pattern:
+     * -- [package].[class]
+     *
+     * - this (matches all joinPoints where the currently executing object is of specified type - PROXY OBJECT); example:
+     * -- this(MyServiceType)
+     *
+     * - target (matches all joinPoints where the currently executing object is of specified type - TARGET OBJECT); example:
+     * -- target(MyServiceType)
+     *
+     * - args (matches joinPoints by arguments of specified types); example:
+     * -- args(long, long)
+     * -- args(java.util.*) <= matches joinPoints where all arguments are of any type from the java.util package
+     *
+     * - @target (matches joinPoints in classes annotated with the specified annotation); example:
+     * -- @target(org.springframework.stereotype.Service)
+     *
+     * - @args (matches joinPoints where an arguments type is annotated with the specified annotation); example:
+     * -- @args(org.springframework.stereotype.Service)
+     *
+     * - @within (matches joinPoints in classes annotated with specified annotation); example:
+     * -- @within(org.springframework.stereotype.Service)
+     *
+     * - @annotation (matches joinPoints in methods annotated with specified annotation); example:
+     * -- @annotation(org.springframework.stereotype.Service)
+     *
+     * - bean (matches joinPoints in specified bean); example:
+     * -- bean(myServiceClass)
+     *
+     */
+
+    /**
      * Pointcut that selects joinPoints in packages below "de" for classes containing "Service" in name for arbitrary
      * return types and parameter numbers.
      *
@@ -90,11 +134,18 @@ public class Aspects {
      */
 
     /**
+     * ADVICES - START
+     */
+
+    /**
      * Before advice - executed before a joinPoint; can not prevent proceeding to the joinPoint unless the advice
      * throws an exception
      *
      * Use cases: access control (security - throw exception for unauthorized users), statistics (counting method
      * invocations)
+     *
+     * NOTE: JoinPoint param is optional, but must be the first if present. JoinPoint holds information about type of
+     * joinPoint, signature of executed method, target object (bean), currently executing object (proxy object)
      */
     @Before("execution(public String de..*ExampleService.doSomething(..))")
     public void beforeAdviceExample(JoinPoint inJoinPoint) {
@@ -107,6 +158,9 @@ public class Aspects {
      * After returning advice - executed after execution of a joinPoint; completed without throwing an exception.
      *
      * Use cases: statistics (counting successful executions), data validation (validating return value)
+     *
+     * NOTE: JoinPoint param is optional, but must be the first if present. JoinPoint holds information about type of
+     * joinPoint, signature of executed method, target object (bean), currently executing object (proxy object)
      */
     @AfterReturning(pointcut = "execution(public String de..*ExampleService.doSomething(..))",
                     returning = "inReturnValue")
@@ -119,6 +173,9 @@ public class Aspects {
      * After throwing advice - executed after execution of a joinPoint that resulted in an exception being thrown.
      *
      * Use cases: error handling (save error infos, send alerts, attempt recovery), statistics (count occurred errors)
+     *
+     * NOTE: JoinPoint param is optional, but must be the first if present. JoinPoint holds information about type of
+     * joinPoint, signature of executed method, target object (bean), currently executing object (proxy object)
      */
     @AfterThrowing(pointcut = "execution(public String de..*ExampleService.doSomething(..))", throwing = "inException")
     public void afterThrowingAdviceExample(JoinPoint inJoinPoint, Throwable inException) {
@@ -132,6 +189,9 @@ public class Aspects {
      * thrown or not
      *
      * Use-cases: releasing resources
+     *
+     * NOTE: JoinPoint param is optional, but must be the first if present. JoinPoint holds information about type of
+     * joinPoint, signature of executed method, target object (bean), currently executing object (proxy object)
      */
     @After("execution(public String de..*ExampleService.doSomething(..))")
     public void afterFinallyAdviceExample(JoinPoint inJoinPoint) {
@@ -145,8 +205,10 @@ public class Aspects {
      * NOTE: Is the only advice capable of catching and handling exceptions that can occur during processing of the
      * joinPoint.
      *
-     * @param inProceedingJoinPoint - ProceedingJoinPoint interface adds to proceed methods to control the flow of
-     *                              the joinPoint method.
+     * FURTHERMORE: ProceedingJoinPoint is optional, but must be the first param, if present. It holds information
+     * about type of joinPoint, signature of executed method, target object (bean), currently executing object (proxy
+     * object). Also, ProceedingJoinPoint interface adds to proceed methods to control the flow of the joinPoint
+     * method: proceed() and process(Object[] args)
      */
     @Around("execution(public void de.holhar.java_dev_kb.training.pcps.ch02_aop.ExampleService.doSomethingDifferent())")
     public Object addAdditionalBehaviourAround(ProceedingJoinPoint inProceedingJoinPoint) throws Throwable {
@@ -161,4 +223,8 @@ public class Aspects {
         logger.info("Around advice after example for '{}'", inProceedingJoinPoint.getSignature().toShortString());
         return result;
     }
+
+    /**
+     * ADVICES - END
+     */
 }
