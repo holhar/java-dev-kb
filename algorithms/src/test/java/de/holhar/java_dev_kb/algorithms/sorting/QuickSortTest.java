@@ -1,17 +1,17 @@
 package de.holhar.java_dev_kb.algorithms.sorting;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Random;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class QuickSortTest {
+class QuickSortTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(QuickSortTest.class);
 
@@ -19,7 +19,7 @@ public class QuickSortTest {
     private final static int MAX = 20;
     private int[] numbers;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         numbers = new int[SIZE];
         Random generator = new Random();
@@ -29,19 +29,19 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testNull() {
+    void testNull() {
         QuickSort sorter = new QuickSort();
         sorter.sort(null);
     }
 
     @Test
-    public void testEmpty() {
+    void testEmpty() {
         QuickSort sorter = new QuickSort();
         sorter.sort(new int[0]);
     }
 
     @Test
-    public void testSimpleElement() {
+    void testSimpleElement() {
         QuickSort sorter = new QuickSort();
         int[] test = new int[1];
         test[0] = 5;
@@ -49,7 +49,7 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testSpecial() {
+    void testSpecial() {
         QuickSort sorter = new QuickSort();
         int[] test = {5, 5, 6, 6, 4, 4, 5, 5, 4, 4, 6, 6, 5, 5};
         sorter.sort(test);
@@ -60,7 +60,7 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testQuickSort() {
+    void testQuickSort() {
         for (Integer i : numbers) {
             LOGGER.debug(i + " ");
         }
@@ -80,7 +80,7 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testStandardSort() {
+    void testStandardSort() {
         long startTime = System.currentTimeMillis();
         Arrays.sort(numbers);
         long stopTime = System.currentTimeMillis();

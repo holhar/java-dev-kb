@@ -1,12 +1,12 @@
 package de.holhar.java_dev_kb.katas.codewars.algorithms;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class AirportArrivalsDepartures1Test {
+class AirportArrivalsDepartures1Test {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AirportArrivalsDepartures1Test.class);
 
@@ -21,7 +21,7 @@ public class AirportArrivalsDepartures1Test {
     }
 
     @Test
-    public void example() {
+    void example() {
         // CAT => DOG
         String[] before = BEFORE(new String[]{"CAT"});
         int[][] rotors = new int[][]{{1, 13, 27}};
@@ -31,7 +31,7 @@ public class AirportArrivalsDepartures1Test {
     }
 
     @Test
-    public void basic() {
+    void basic() {
         // HELLO => WORLD!
         String[] before = BEFORE(new String[]{"HELLO "});
         int[][] rotors = new int[][]{{15, 49, 50, 48, 43, 13}};
@@ -41,7 +41,7 @@ public class AirportArrivalsDepartures1Test {
     }
 
     @Test
-    public void basic2() {
+    void basic2() {
         // CODE => WARS
         String[] before = BEFORE(new String[]{"CODE"});
         int[][] rotors = new int[][]{{20, 20, 28, 0}};
@@ -51,7 +51,7 @@ public class AirportArrivalsDepartures1Test {
     }
 
     @Test
-    public void arrayInput() {
+    void arrayInput() {
         String[] before = BEFORE(new String[]{"CAT", "HELLO ", "CODE"});
         int[][] rotors = new int[][]{{1, 13, 27}, {15, 49, 50, 48, 43, 13}, {20, 20, 28, 0}};
         String[] after = AFTER(AirportArrivalsDepartures1.flapDisplay(before, rotors));

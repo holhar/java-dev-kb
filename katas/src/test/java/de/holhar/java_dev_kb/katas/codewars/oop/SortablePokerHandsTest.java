@@ -1,17 +1,17 @@
 package de.holhar.java_dev_kb.katas.codewars.oop;
 
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SortablePokerHandsTest {
+class SortablePokerHandsTest {
 
     private static ArrayList<SortablePokerHands> expectedAll;
 
@@ -92,7 +92,7 @@ public class SortablePokerHandsTest {
     private static SortablePokerHands highCard8;
     private static SortablePokerHands highCard9;
 
-    @BeforeClass
+    @BeforeAll
     public static void init() {
         expectedAll = new ArrayList<>();
 
@@ -185,13 +185,13 @@ public class SortablePokerHandsTest {
     }
 
     @Test
-    public void testGetRank_RoyalFlush() {
-        assertEquals("Rank with values " + royalFlush1.getValues() + " should be 101311100900, but was " + royalFlush1.getRank(), 101311100900L, royalFlush1.getRank()); // [A, T, J, Q, K]
-        assertEquals("Rank with values " + royalFlush2.getValues() + " should be 101311100900, but was " + royalFlush2.getRank(), 101311100900L, royalFlush2.getRank()); // [A, T, J, Q, K]
+    void testGetRank_RoyalFlush() {
+        assertEquals(101311100900L, royalFlush1.getRank(), "Rank with values " + royalFlush1.getValues() + " should be 101311100900 but was " + royalFlush1.getRank()); // [A, T, J, Q, K]
+        assertEquals(101311100900L, royalFlush2.getRank(), "Rank with values " + royalFlush2.getValues() + " should be 101311100900 but was " + royalFlush2.getRank()); // [A, T, J, Q, K]
     }
 
     @Test
-    public void testCompare_RoyalFlush() {
+    void testCompare_RoyalFlush() {
         expectedRoyalFlush.add(royalFlush1);
         expectedRoyalFlush.add(royalFlush2);
         actualRoyalFlush.add(royalFlush1);
@@ -201,20 +201,20 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualRoyalFlush.iterator();
         for (SortablePokerHands e : expectedRoyalFlush) {
-            assertEquals("\n\nexpect: " + expectedRoyalFlush.toString() + "\nactual: " + actualRoyalFlush.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedRoyalFlush.toString() + "\nactual: " + actualRoyalFlush.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_StraightFlush() {
-        assertEquals("Rank with values " + straightFlush1.getValues() + "  should be 91211100908, but was " + straightFlush1.getRank(), 91211100908L, straightFlush1.getRank()); // [9, T, J, Q, K]
-        assertEquals("Rank with values " + straightFlush2.getValues() + "  should be 90605040302, but was " + straightFlush2.getRank(), 90605040302L, straightFlush2.getRank()); // [3, 4, 5, 6, 7]
-        assertEquals("Rank with values " + straightFlush3.getValues() + "  should be 90504030201, but was " + straightFlush3.getRank(), 90504030201L, straightFlush3.getRank()); // [2, 3, 4, 5, 6]
-        assertEquals("Rank with values " + straightFlush4.getValues() + "  should be 90403020100, but was " + straightFlush4.getRank(), 90403020100L, straightFlush4.getRank()); // [A, 2, 3, 4, 5]
+    void testGetRank_StraightFlush() {
+        assertEquals(91211100908L, straightFlush1.getRank(), "Rank with values " + straightFlush1.getValues() + "  should be 91211100908 but was " + straightFlush1.getRank()); // [9, T, J, Q, K]
+        assertEquals(90605040302L, straightFlush2.getRank(), "Rank with values " + straightFlush2.getValues() + "  should be 90605040302 but was " + straightFlush2.getRank()); // [3, 4, 5, 6, 7]
+        assertEquals(90504030201L, straightFlush3.getRank(), "Rank with values " + straightFlush3.getValues() + "  should be 90504030201 but was " + straightFlush3.getRank()); // [2, 3, 4, 5, 6]
+        assertEquals(90403020100L, straightFlush4.getRank(), "Rank with values " + straightFlush4.getValues() + "  should be 90403020100 but was " + straightFlush4.getRank()); // [A, 2, 3, 4, 5]
     }
 
     @Test
-    public void testCompare_StraightFlush() {
+    void testCompare_StraightFlush() {
         expectedStraightFlushes.add(straightFlush1);
         expectedStraightFlushes.add(straightFlush2);
         expectedStraightFlushes.add(straightFlush3);
@@ -228,21 +228,21 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualStraightFlushes.iterator();
         for (SortablePokerHands e : expectedStraightFlushes) {
-            assertEquals("\n\nexpect: " + expectedStraightFlushes.toString() + "\nactual: " + actualStraightFlushes.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedStraightFlushes.toString() + "\nactual: " + actualStraightFlushes.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_FourOfAKind() {
-        assertEquals("Rank with values " + fourOfAKind1.getValues() + " should be 85212000000, but was " + fourOfAKind1.getRank(), 85212000000L, fourOfAKind1.getRank()); // [K, A, A, A, A]
-        assertEquals("Rank with values " + fourOfAKind2.getValues() + " should be 85210000000, but was " + fourOfAKind2.getRank(), 85210000000L, fourOfAKind2.getRank()); // [J, A, A, A, A]
-        assertEquals("Rank with values " + fourOfAKind3.getValues() + " should be 84013000000, but was " + fourOfAKind3.getRank(), 84013000000L, fourOfAKind3.getRank()); // [A, J, J, J, J]
-        assertEquals("Rank with values " + fourOfAKind4.getValues() + " should be 84006000000, but was " + fourOfAKind4.getRank(), 84006000000L, fourOfAKind4.getRank()); // [7, J, J, J, J]
-        assertEquals("Rank with values " + fourOfAKind5.getValues() + " should be 84005000000, but was " + fourOfAKind5.getRank(), 84005000000L, fourOfAKind5.getRank()); // [6, J, J, J, J]
+    void testGetRank_FourOfAKind() {
+        assertEquals(85212000000L, fourOfAKind1.getRank(), "Rank with values " + fourOfAKind1.getValues() + " should be 85212000000 but was " + fourOfAKind1.getRank()); // [K, A, A, A, A]
+        assertEquals(85210000000L, fourOfAKind2.getRank(), "Rank with values " + fourOfAKind2.getValues() + " should be 85210000000 but was " + fourOfAKind2.getRank()); // [J, A, A, A, A]
+        assertEquals(84013000000L, fourOfAKind3.getRank(), "Rank with values " + fourOfAKind3.getValues() + " should be 84013000000 but was " + fourOfAKind3.getRank()); // [A, J, J, J, J]
+        assertEquals(84006000000L, fourOfAKind4.getRank(), "Rank with values " + fourOfAKind4.getValues() + " should be 84006000000 but was " + fourOfAKind4.getRank()); // [7, J, J, J, J]
+        assertEquals(84005000000L, fourOfAKind5.getRank(), "Rank with values " + fourOfAKind5.getValues() + " should be 84005000000 but was " + fourOfAKind5.getRank()); // [6, J, J, J, J]
     }
 
     @Test
-    public void testCompare_FourOfAKind() {
+    void testCompare_FourOfAKind() {
         expectedFourOfAKind.add(fourOfAKind1);
         expectedFourOfAKind.add(fourOfAKind2);
         expectedFourOfAKind.add(fourOfAKind3);
@@ -258,21 +258,21 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualFourOfAKind.iterator();
         for (SortablePokerHands e : expectedFourOfAKind) {
-            assertEquals("\n\nexpect: " + expectedFourOfAKind.toString() + "\nactual: " + actualFourOfAKind.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedFourOfAKind.toString() + "\nactual: " + actualFourOfAKind.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_FullHouse() {
-        assertEquals("Rank with values " + fullHouse1.getValues() + " should be 73902000000, but was " + fullHouse1.getRank(), 73902000000L, fullHouse1.getRank()); // [2, 2, A, A, A]
-        assertEquals("Rank with values " + fullHouse2.getValues() + " should be 70624000000, but was " + fullHouse2.getRank(), 70624000000L, fullHouse2.getRank()); // [K, K, 3, 3, 3]
-        assertEquals("Rank with values " + fullHouse3.getValues() + " should be 70602000000, but was " + fullHouse3.getRank(), 70602000000L, fullHouse3.getRank()); // [2, 2, 3, 3, 3]
-        assertEquals("Rank with values " + fullHouse4.getValues() + " should be 70326000000, but was " + fullHouse4.getRank(), 70326000000L, fullHouse4.getRank()); // [A, A, 2, 2, 2]
-        assertEquals("Rank with values " + fullHouse5.getValues() + " should be 70304000000, but was " + fullHouse5.getRank(), 70304000000L, fullHouse5.getRank()); // [3, 3, 2, 2, 2]
+    void testGetRank_FullHouse() {
+        assertEquals(73902000000L, fullHouse1.getRank(), "Rank with values " + fullHouse1.getValues() + " should be 73902000000 but was " + fullHouse1.getRank()); // [2, 2, A, A, A]
+        assertEquals(70624000000L, fullHouse2.getRank(), "Rank with values " + fullHouse2.getValues() + " should be 70624000000 but was " + fullHouse2.getRank()); // [K, K, 3, 3, 3]
+        assertEquals(70602000000L, fullHouse3.getRank(), "Rank with values " + fullHouse3.getValues() + " should be 70602000000 but was " + fullHouse3.getRank()); // [2, 2, 3, 3, 3]
+        assertEquals(70326000000L, fullHouse4.getRank(), "Rank with values " + fullHouse4.getValues() + " should be 70326000000 but was " + fullHouse4.getRank()); // [A, A, 2, 2, 2]
+        assertEquals(70304000000L, fullHouse5.getRank(), "Rank with values " + fullHouse5.getValues() + " should be 70304000000 but was " + fullHouse5.getRank()); // [3, 3, 2, 2, 2]
     }
 
     @Test
-    public void testCompare_FullHouses() {
+    void testCompare_FullHouses() {
         expectedFullHouses.add(fullHouse1);
         expectedFullHouses.add(fullHouse2);
         expectedFullHouses.add(fullHouse3);
@@ -288,22 +288,22 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualFullHouses.iterator();
         for (SortablePokerHands e : expectedFullHouses) {
-            assertEquals("\n\nexpect: " + expectedFullHouses.toString() + "\nactual: " + actualFullHouses.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedFullHouses.toString() + "\nactual: " + actualFullHouses.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_Flush() {
-        assertEquals("Rank with values " + flush1.getValues() + " should be 61312111007, but was " + flush1.getRank(), 61312111007L, flush1.getRank()); // [8, J, Q, K, A]
-        assertEquals("Rank with values " + flush2.getValues() + " should be 61307030201, but was " + flush2.getRank(), 61307030201L, flush2.getRank()); // [2, 3, 4, 8, A]
-        assertEquals("Rank with values " + flush3.getValues() + " should be 61208070403, but was " + flush3.getRank(), 61208070403L, flush3.getRank()); // [4, 5, 8, 9, K]
-        assertEquals("Rank with values " + flush4.getValues() + " should be 61208070402, but was " + flush4.getRank(), 61208070402L, flush4.getRank()); // [3, 5, 8, 9, K]
-        assertEquals("Rank with values " + flush5.getValues() + " should be 60908070402, but was " + flush5.getRank(), 60908070402L, flush5.getRank()); // [3, 5, 8, 9, T]
-        assertEquals("Rank with values " + flush6.getValues() + " should be 60605040201, but was " + flush6.getRank(), 60605040201L, flush6.getRank()); // [2, 3, 5, 6, 7]
+    void testGetRank_Flush() {
+        assertEquals(61312111007L, flush1.getRank(), "Rank with values " + flush1.getValues() + " should be 61312111007 but was " + flush1.getRank()); // [8, J, Q, K, A]
+        assertEquals(61307030201L, flush2.getRank(), "Rank with values " + flush2.getValues() + " should be 61307030201 but was " + flush2.getRank()); // [2, 3, 4, 8, A]
+        assertEquals(61208070403L, flush3.getRank(), "Rank with values " + flush3.getValues() + " should be 61208070403 but was " + flush3.getRank()); // [4, 5, 8, 9, K]
+        assertEquals(61208070402L, flush4.getRank(), "Rank with values " + flush4.getValues() + " should be 61208070402 but was " + flush4.getRank()); // [3, 5, 8, 9, K]
+        assertEquals(60908070402L, flush5.getRank(), "Rank with values " + flush5.getValues() + " should be 60908070402 but was " + flush5.getRank()); // [3, 5, 8, 9, T]
+        assertEquals(60605040201L, flush6.getRank(), "Rank with values " + flush6.getValues() + " should be 60605040201 but was " + flush6.getRank()); // [2, 3, 5, 6, 7]
     }
 
     @Test
-    public void testCompare_Flushes() {
+    void testCompare_Flushes() {
         expectedFlushes.add(flush1);
         expectedFlushes.add(flush2);
         expectedFlushes.add(flush3);
@@ -321,21 +321,21 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualFlushes.iterator();
         for (SortablePokerHands e : expectedFlushes) {
-            assertEquals("\n\nexpect: " + expectedFlushes.toString() + "\nactual: " + actualFlushes.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedFlushes.toString() + "\nactual: " + actualFlushes.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_Straight() {
-        assertEquals("Rank with values " + straight1.getValues() + " should be 51312111009, but was " + straight1.getRank(), 51312111009L, straight1.getRank()); // [T, J, Q, K, A]
-        assertEquals("Rank with values " + straight2.getValues() + " should be 51211100908, but was " + straight2.getRank(), 51211100908L, straight2.getRank()); // [9, T, J, Q, K]
-        assertEquals("Rank with values " + straight3.getValues() + " should be 50807060504, but was " + straight3.getRank(), 50807060504L, straight3.getRank()); // [5, 6, 7, 8, 9]
-        assertEquals("Rank with values " + straight4.getValues() + " should be 50504030201, but was " + straight4.getRank(), 50504030201L, straight4.getRank()); // [2, 3, 4, 5, 6]
-        assertEquals("Rank with values " + straight5.getValues() + " should be 50403020100, but was " + straight5.getRank(), 50403020100L, straight5.getRank()); // [A, 2, 3, 4, 5]
+    void testGetRank_Straight() {
+        assertEquals(51312111009L, straight1.getRank(), "Rank with values " + straight1.getValues() + " should be 51312111009 but was " + straight1.getRank()); // [T, J, Q, K, A]
+        assertEquals(51211100908L, straight2.getRank(), "Rank with values " + straight2.getValues() + " should be 51211100908 but was " + straight2.getRank()); // [9, T, J, Q, K]
+        assertEquals(50807060504L, straight3.getRank(), "Rank with values " + straight3.getValues() + " should be 50807060504 but was " + straight3.getRank()); // [5, 6, 7, 8, 9]
+        assertEquals(50504030201L, straight4.getRank(), "Rank with values " + straight4.getValues() + " should be 50504030201 but was " + straight4.getRank()); // [2, 3, 4, 5, 6]
+        assertEquals(50403020100L, straight5.getRank(), "Rank with values " + straight5.getValues() + " should be 50403020100 but was " + straight5.getRank()); // [A, 2, 3, 4, 5]
     }
 
     @Test
-    public void testCompare_Straights() {
+    void testCompare_Straights() {
         expectedStraights.add(straight1);
         expectedStraights.add(straight2);
         expectedStraights.add(straight3);
@@ -351,21 +351,21 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualStraights.iterator();
         for (SortablePokerHands e : expectedStraights) {
-            assertEquals("\n\nexpect: " + expectedStraights.toString() + "\nactual: " + actualStraights.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedStraights.toString() + "\nactual: " + actualStraights.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_ThreeOfAKind() {
-        assertEquals("Rank with values " + threeOfAKind1.getValues() + " should be 43936110000, but was " + threeOfAKind1.getRank(), 43936110000L, threeOfAKind1.getRank()); // [Q, K, A, A, A]
-        assertEquals("Rank with values " + threeOfAKind2.getValues() + " should be 43915040000, but was " + threeOfAKind2.getRank(), 43915040000L, threeOfAKind2.getRank()); // [5, 6, A, A, A]
-        assertEquals("Rank with values " + threeOfAKind3.getValues() + " should be 41836010000, but was " + threeOfAKind3.getRank(), 41836010000L, threeOfAKind3.getRank()); // [2, K, 7, 7, 7]
-        assertEquals("Rank with values " + threeOfAKind4.getValues() + " should be 41812020000, but was " + threeOfAKind4.getRank(), 41812020000L, threeOfAKind4.getRank()); // [3, 5, 7, 7, 7]
-        assertEquals("Rank with values " + threeOfAKind5.getValues() + " should be 41539020000, but was " + threeOfAKind5.getRank(), 41539020000L, threeOfAKind5.getRank()); // [3, A, 6, 6, 6]
+    void testGetRank_ThreeOfAKind() {
+        assertEquals(43936110000L, threeOfAKind1.getRank(), "Rank with values " + threeOfAKind1.getValues() + " should be 43936110000 but was " + threeOfAKind1.getRank()); // [Q, K, A, A, A]
+        assertEquals(43915040000L, threeOfAKind2.getRank(), "Rank with values " + threeOfAKind2.getValues() + " should be 43915040000 but was " + threeOfAKind2.getRank()); // [5, 6, A, A, A]
+        assertEquals(41836010000L, threeOfAKind3.getRank(), "Rank with values " + threeOfAKind3.getValues() + " should be 41836010000 but was " + threeOfAKind3.getRank()); // [2, K, 7, 7, 7]
+        assertEquals(41812020000L, threeOfAKind4.getRank(), "Rank with values " + threeOfAKind4.getValues() + " should be 41812020000 but was " + threeOfAKind4.getRank()); // [3, 5, 7, 7, 7]
+        assertEquals(41539020000L, threeOfAKind5.getRank(), "Rank with values " + threeOfAKind5.getValues() + " should be 41539020000 but was " + threeOfAKind5.getRank()); // [3, A, 6, 6, 6]
     }
 
     @Test
-    public void testCompare_ThreeOfAKind() {
+    void testCompare_ThreeOfAKind() {
         expectedThreeOfAKind.add(threeOfAKind1);
         expectedThreeOfAKind.add(threeOfAKind2);
         expectedThreeOfAKind.add(threeOfAKind3);
@@ -381,21 +381,21 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualThreeOfAKind.iterator();
         for (SortablePokerHands e : expectedThreeOfAKind) {
-            assertEquals("\n\nexpect: " + expectedThreeOfAKind.toString() + "\nactual: " + actualThreeOfAKind.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedThreeOfAKind.toString() + "\nactual: " + actualThreeOfAKind.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_TwoPairs() {
-        assertEquals("Rank with values " + twoPairs1.getValues() + " should be 32606040000, but was " + twoPairs1.getRank(), 32606040000L, twoPairs1.getRank()); // [5, 4, 4, A, A]
-        assertEquals("Rank with values " + twoPairs2.getValues() + " should be 32408020000, but was " + twoPairs2.getRank(), 32408020000L, twoPairs2.getRank()); // [3, 5, 5, K, K]
-        assertEquals("Rank with values " + twoPairs3.getValues() + " should be 32408010000, but was " + twoPairs3.getRank(), 32408010000L, twoPairs3.getRank()); // [2, 5, 5, K, K]
-        assertEquals("Rank with values " + twoPairs4.getValues() + " should be 30604010000, but was " + twoPairs4.getRank(), 30604010000L, twoPairs4.getRank()); // [2, 3, 3, 4, 4]
-        assertEquals("Rank with values " + twoPairs5.getValues() + " should be 30602040000, but was " + twoPairs5.getRank(), 30602040000L, twoPairs5.getRank()); // [5, 2, 2, 4, 4]
+    void testGetRank_TwoPairs() {
+        assertEquals(32606040000L, twoPairs1.getRank(), "Rank with values " + twoPairs1.getValues() + " should be 32606040000 but was " + twoPairs1.getRank()); // [5, 4, 4, A, A]
+        assertEquals(32408020000L, twoPairs2.getRank(), "Rank with values " + twoPairs2.getValues() + " should be 32408020000 but was " + twoPairs2.getRank()); // [3, 5, 5, K, K]
+        assertEquals(32408010000L, twoPairs3.getRank(), "Rank with values " + twoPairs3.getValues() + " should be 32408010000 but was " + twoPairs3.getRank()); // [2, 5, 5, K, K]
+        assertEquals(30604010000L, twoPairs4.getRank(), "Rank with values " + twoPairs4.getValues() + " should be 30604010000 but was " + twoPairs4.getRank()); // [2, 3, 3, 4, 4]
+        assertEquals(30602040000L, twoPairs5.getRank(), "Rank with values " + twoPairs5.getValues() + " should be 30602040000 but was " + twoPairs5.getRank()); // [5, 2, 2, 4, 4]
     }
 
     @Test
-    public void testCompare_TwoPairs() {
+    void testCompare_TwoPairs() {
         expectedTwoPairs.add(twoPairs1);
         expectedTwoPairs.add(twoPairs2);
         expectedTwoPairs.add(twoPairs3);
@@ -411,25 +411,25 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualTwoPairs.iterator();
         for (SortablePokerHands e : expectedTwoPairs) {
-            assertEquals("\n\nexpect: " + expectedTwoPairs.toString() + "\nactual: " + actualTwoPairs.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedTwoPairs.toString() + "\nactual: " + actualTwoPairs.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_Pair() {
-        assertEquals("Rank with values " + pair1.getValues() + " should be 22612100700, but was " + pair1.getRank(), 22612100700L, pair1.getRank()); // [8, J, K, A, A]
-        assertEquals("Rank with values " + pair2.getValues() + " should be 22606050400, but was " + pair2.getRank(), 22606050400L, pair2.getRank()); // [5, 6, 7, A, A]
-        assertEquals("Rank with values " + pair3.getValues() + " should be 22606050300, but was " + pair3.getRank(), 22606050300L, pair3.getRank()); // [4, 6, 7, A, A]
-        assertEquals("Rank with values " + pair4.getValues() + " should be 22407030200, but was " + pair4.getRank(), 22407030200L, pair4.getRank()); // [3, 4, 8, K, K]
-        assertEquals("Rank with values " + pair5.getValues() + " should be 22407030100, but was " + pair5.getRank(), 22407030100L, pair5.getRank()); // [2, 4, 8, K, K]
-        assertEquals("Rank with values " + pair6.getValues() + " should be 21412111000, but was " + pair6.getRank(), 21412111000L, pair6.getRank()); // [J, Q, K, 8, 8]
-        assertEquals("Rank with values " + pair7.getValues() + " should be 20613110900, but was " + pair7.getRank(), 20613110900L, pair7.getRank()); // [T, Q, A, 4, 4]
-        assertEquals("Rank with values " + pair8.getValues() + " should be 20612100700, but was " + pair8.getRank(), 20612100700L, pair8.getRank()); // [8, J, K, 4, 4]
-        assertEquals("Rank with values " + pair9.getValues() + " should be 20612080700, but was " + pair9.getRank(), 20612080700L, pair9.getRank()); // [8, 9, K, 4, 4]
+    void testGetRank_Pair() {
+        assertEquals(22612100700L, pair1.getRank(), "Rank with values " + pair1.getValues() + " should be 22612100700 but was " + pair1.getRank()); // [8, J, K, A, A]
+        assertEquals(22606050400L, pair2.getRank(), "Rank with values " + pair2.getValues() + " should be 22606050400 but was " + pair2.getRank()); // [5, 6, 7, A, A]
+        assertEquals(22606050300L, pair3.getRank(), "Rank with values " + pair3.getValues() + " should be 22606050300 but was " + pair3.getRank()); // [4, 6, 7, A, A]
+        assertEquals(22407030200L, pair4.getRank(), "Rank with values " + pair4.getValues() + " should be 22407030200 but was " + pair4.getRank()); // [3, 4, 8, K, K]
+        assertEquals(22407030100L, pair5.getRank(), "Rank with values " + pair5.getValues() + " should be 22407030100 but was " + pair5.getRank()); // [2, 4, 8, K, K]
+        assertEquals(21412111000L, pair6.getRank(), "Rank with values " + pair6.getValues() + " should be 21412111000 but was " + pair6.getRank()); // [J, Q, K, 8, 8]
+        assertEquals(20613110900L, pair7.getRank(), "Rank with values " + pair7.getValues() + " should be 20613110900 but was " + pair7.getRank()); // [T, Q, A, 4, 4]
+        assertEquals(20612100700L, pair8.getRank(), "Rank with values " + pair8.getValues() + " should be 20612100700 but was " + pair8.getRank()); // [8, J, K, 4, 4]
+        assertEquals(20612080700L, pair9.getRank(), "Rank with values " + pair9.getValues() + " should be 20612080700 but was " + pair9.getRank()); // [8, 9, K, 4, 4]
     }
 
     @Test
-    public void testCompare_Pairs() {
+    void testCompare_Pairs() {
         expectedPairs.add(pair1);
         expectedPairs.add(pair2);
         expectedPairs.add(pair3);
@@ -453,25 +453,25 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualPairs.iterator();
         for (SortablePokerHands e : expectedPairs) {
-            assertEquals("\n\nexpect: " + expectedPairs.toString() + "\nactual: " + actualPairs.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedPairs.toString() + "\nactual: " + actualPairs.toString() + "\n");
         }
     }
 
     @Test
-    public void testGetRank_HighCard() {
-        assertEquals("Rank with values " + highCard1.getValues() + " should be 11312090805, but was " + highCard1.getRank(), 11312090805L, highCard1.getRank()); // [6, 9, T, K, A]
-        assertEquals("Rank with values " + highCard2.getValues() + " should be 11312090804, but was " + highCard2.getRank(), 11312090804L, highCard2.getRank()); // [5, 9, T, K, A]
-        assertEquals("Rank with values " + highCard3.getValues() + " should be 11312040301, but was " + highCard3.getRank(), 11312040301L, highCard3.getRank()); // [2, 4, 5, K, A]
-        assertEquals("Rank with values " + highCard4.getValues() + " should be 11311100907, but was " + highCard4.getRank(), 11311100907L, highCard4.getRank()); // [8, T, J, Q, A]
-        assertEquals("Rank with values " + highCard5.getValues() + " should be 11009070501, but was " + highCard5.getRank(), 11009070501L, highCard5.getRank()); // [2, 6, 8, T, J]
-        assertEquals("Rank with values " + highCard6.getValues() + " should be 10908060501, but was " + highCard6.getRank(), 10908060501L, highCard6.getRank()); // [2, 6, 7, 9, T]
-        assertEquals("Rank with values " + highCard7.getValues() + " should be 10807060501, but was " + highCard7.getRank(), 10807060501L, highCard7.getRank()); // [2, 6, 7, 8, 9]
-        assertEquals("Rank with values " + highCard8.getValues() + " should be 10806050201, but was " + highCard8.getRank(), 10806050201L, highCard8.getRank()); // [2, 3, 6, 7, 9]
-        assertEquals("Rank with values " + highCard9.getValues() + " should be 10604030201, but was " + highCard9.getRank(), 10604030201L, highCard9.getRank()); // [2, 3, 4, 5, 7]
+    void testGetRank_HighCard() {
+        assertEquals(11312090805L, highCard1.getRank(), "Rank with values " + highCard1.getValues() + " should be 11312090805 but was " + highCard1.getRank()); // [6, 9, T, K, A]
+        assertEquals(11312090804L, highCard2.getRank(), "Rank with values " + highCard2.getValues() + " should be 11312090804 but was " + highCard2.getRank()); // [5, 9, T, K, A]
+        assertEquals(11312040301L, highCard3.getRank(), "Rank with values " + highCard3.getValues() + " should be 11312040301 but was " + highCard3.getRank()); // [2, 4, 5, K, A]
+        assertEquals(11311100907L, highCard4.getRank(), "Rank with values " + highCard4.getValues() + " should be 11311100907 but was " + highCard4.getRank()); // [8, T, J, Q, A]
+        assertEquals(11009070501L, highCard5.getRank(), "Rank with values " + highCard5.getValues() + " should be 11009070501 but was " + highCard5.getRank()); // [2, 6, 8, T, J]
+        assertEquals(10908060501L, highCard6.getRank(), "Rank with values " + highCard6.getValues() + " should be 10908060501 but was " + highCard6.getRank()); // [2, 6, 7, 9, T]
+        assertEquals(10807060501L, highCard7.getRank(), "Rank with values " + highCard7.getValues() + " should be 10807060501 but was " + highCard7.getRank()); // [2, 6, 7, 8, 9]
+        assertEquals(10806050201L, highCard8.getRank(), "Rank with values " + highCard8.getValues() + " should be 10806050201 but was " + highCard8.getRank()); // [2, 3, 6, 7, 9]
+        assertEquals(10604030201L, highCard9.getRank(), "Rank with values " + highCard9.getValues() + " should be 10604030201 but was " + highCard9.getRank()); // [2, 3, 4, 5, 7]
     }
 
     @Test
-    public void testCompare_HighCards() {
+    void testCompare_HighCards() {
         expectedHighCards.add(highCard1);
         expectedHighCards.add(highCard2);
         expectedHighCards.add(highCard3);
@@ -495,14 +495,14 @@ public class SortablePokerHandsTest {
 
         Iterator a = actualHighCards.iterator();
         for (SortablePokerHands e : expectedHighCards) {
-            assertEquals("\n\nexpect: " + expectedHighCards.toString() + "\nactual: " + actualHighCards.toString() + "\n", e, a.next());
+            assertEquals(e, a.next(), "\n\nexpect: " + expectedHighCards.toString() + "\nactual: " + actualHighCards.toString() + "\n");
         }
     }
 
     // FIXME: Test fails
     @Test
-    @Ignore
-    public void pokerHandSortTest() {
+    @Disabled
+    void pokerHandSortTest() {
         // Arrange
         expectedAll.add(royalFlush1);
         expectedAll.add(royalFlush2);
@@ -573,13 +573,13 @@ public class SortablePokerHandsTest {
             if (!e.equals(a.next())) {
                 differences++;
             }
-            // assertEquals("\n\nexpect: " + expectedAll.toString() + "\nactual: " + actual.toString() + "\n", e, a.next());
+            // assertEquals(e, a.next(), "\n\nexpect: " + expectedAll.toString() + "\nactual: " + actual.toString() + "\n");
         }
-        assertEquals("There were " + differences + " differences found, but there should be 0\n\nexpect: " + expectedAll.toString() + "\nactual: " + actual.toString() + "\n", 0, differences);
+        assertEquals(0, differences, "There were " + differences + " differences found, but there should be 0\n\nexpect: " + expectedAll.toString() + "\nactual: " + actual + "\n");
     }
 
     private ArrayList<SortablePokerHands> createRandomOrderedList(Random random, ArrayList<SortablePokerHands> expected) {
-        ArrayList<SortablePokerHands> actual = new ArrayList<SortablePokerHands>();
+        ArrayList<SortablePokerHands> actual = new ArrayList<>();
         for (SortablePokerHands pokerHand : expected) {
             int j = random.nextInt(actual.size() + 1);
             actual.add(j, pokerHand);

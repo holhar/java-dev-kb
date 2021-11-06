@@ -1,10 +1,10 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class SetOfStacksTest {
+class SetOfStacksTest {
 
     @Test
-    public void basicOperations() {
+    void basicOperations() {
     }
 }

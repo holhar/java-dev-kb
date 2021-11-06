@@ -1,28 +1,28 @@
 package de.holhar.java_dev_kb.katas.codewars.fundamentals.strings;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CatalogTest {
+class CatalogTest {
 
     private static String rows;
 
-    @Before
+    @BeforeEach
     public void setup() {
         rows = setupRows();
     }
 
     @Test
-    public void testCatalog_standardSearch() {
+    void testCatalog_standardSearch() {
         String expected = "table saw > prx: $1099.99 qty: 5\nsaw > prx: $9 qty: 10";
         String actual = Catalog.catalog(rows, "saw");
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testCatalog_noResult() {
+    void testCatalog_noResult() {
         String expected = "Nothing";
         String actual = Catalog.catalog(rows, "adsf");
         assertEquals(expected, actual);

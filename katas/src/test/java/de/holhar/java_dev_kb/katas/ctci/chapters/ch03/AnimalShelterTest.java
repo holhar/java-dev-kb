@@ -1,10 +1,10 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class AnimalShelterTest {
+class AnimalShelterTest {
 
     @Test
-    public void basicOperations() {
+    void basicOperations() {
     }
 }

@@ -1,13 +1,13 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch04;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BinarySearchTreeTest {
+class BinarySearchTreeTest {
 
     @Test
-    public void testCreateMinimalBST() {
+    void testCreateMinimalBST() {
         // given the following array
         int[] array = {1, 2, 3, 4, 5, 6, 7};
 

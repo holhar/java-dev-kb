@@ -1,17 +1,17 @@
 package de.holhar.java_dev_kb.algorithms.sorting;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Random;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class MergeSortTest {
+class MergeSortTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MergeSortTest.class);
 
@@ -19,7 +19,7 @@ public class MergeSortTest {
     private final static int MAX = 20;
     private int[] numbers;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         numbers = new int[SIZE];
         Random generator = new Random();
@@ -29,7 +29,7 @@ public class MergeSortTest {
     }
 
     @Test
-    public void testMergeSort() {
+    void testMergeSort() {
         long startTime = System.currentTimeMillis();
 
         MergeSort sorter = new MergeSort();
@@ -49,7 +49,7 @@ public class MergeSortTest {
     }
 
     @Test
-    public void itWorksRepeatably() {
+    void itWorksRepeatably() {
         for (int i = 0; i < 200; i++) {
             numbers = new int[SIZE];
             Random generator = new Random();
@@ -68,7 +68,7 @@ public class MergeSortTest {
     }
 
     @Test
-    public void testStandardSort() {
+    void testStandardSort() {
         long startTime = System.currentTimeMillis();
         Arrays.sort(numbers);
         long stopTime = System.currentTimeMillis();

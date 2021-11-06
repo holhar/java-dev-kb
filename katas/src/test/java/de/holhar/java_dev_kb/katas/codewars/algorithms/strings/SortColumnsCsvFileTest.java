@@ -1,12 +1,13 @@
 package de.holhar.java_dev_kb.katas.codewars.algorithms.strings;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SortColumnsCsvFileTest {
+class SortColumnsCsvFileTest {
+
     @Test
-    public void basicTests() {
+    void basicTests() {
         String preSorting = "myjinxin2015;raulbc777;smile67;Dentzil;SteffenVogel_79\n"
                 + "17945;10091;10088;3907;10132\n"
                 + "2;12;13;48;11";

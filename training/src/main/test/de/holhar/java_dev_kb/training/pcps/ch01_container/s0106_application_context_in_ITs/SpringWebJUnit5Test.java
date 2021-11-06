@@ -2,7 +2,7 @@ package de.holhar.java_dev_kb.training.pcps.ch01_container.s0106_application_con
 
 import de.holhar.java_dev_kb.training.pcps.ch01_container.TestConfiguration;
 import de.holhar.java_dev_kb.training.pcps.ch01_container.s0104_application_context.config.SomeBeanOne;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

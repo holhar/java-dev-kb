@@ -1,14 +1,14 @@
 package de.holhar.java_dev_kb.training.pcps.ch08_testing.s0802_application_context;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Inherits test application context defined in {@link TestBaseClass} and adds additional configuration by specifying
@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
  * {@link org.springframework.test.annotation.DirtiesContext} can help.
  */
 @ContextConfiguration(classes = ContextConfigurationTwo.class)
-public class TestChildClass extends TestBaseClass {
+class TestChildClass extends TestBaseClass {
 
     private static final Logger logger = LoggerFactory.getLogger(TestChildClass.class);
 
@@ -37,14 +37,14 @@ public class TestChildClass extends TestBaseClass {
     private AwesomeBean awesomeBeanTwo;
 
     @Test
-    public void awesomeBeanOne_fromContextConfigurationOne_isPresent() {
+    void awesomeBeanOne_fromContextConfigurationOne_isPresent() {
         assertNotNull(awesomeBeanOne);
         assertTrue(awesomeBeanOne.getName().contains("ContextConfigurationOne"));
         logger.info(awesomeBeanOne.getName());
     }
 
     @Test
-    public void awesomeBeanTwo_fromContextConfigurationTwo_isPresent() {
+    void awesomeBeanTwo_fromContextConfigurationTwo_isPresent() {
         assertNotNull(awesomeBeanTwo);
         assertTrue(awesomeBeanTwo.getName().contains("ContextConfigurationOne"));
         logger.info(awesomeBeanTwo.getName());

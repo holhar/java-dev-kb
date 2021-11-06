@@ -1,13 +1,13 @@
 package de.holhar.java_dev_kb.katas.codewars.fundamentals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OddCubedNumbersTest {
+class OddCubedNumbersTest {
 
     @Test
-    public void cubeOdd() throws Exception {
+    void cubeOdd() throws Exception {
         int[] given = new int[]{1, 2, 3};
         assertEquals(28, OddCubedNumbers.cubeOdd(given));
     }

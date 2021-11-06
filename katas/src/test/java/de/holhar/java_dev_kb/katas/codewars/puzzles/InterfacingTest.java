@@ -1,8 +1,8 @@
 package de.holhar.java_dev_kb.katas.codewars.puzzles;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,9 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class InterfacingTest {
+
+class InterfacingTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InterfacingTest.class);
 
@@ -23,8 +24,8 @@ public class InterfacingTest {
     private Class<?>[] interfaces;
 
     @Test
-    @Ignore
-    public void testCreate() {
+    @Disabled
+    void testCreate() {
         Object o = Interfacing.create(interfaces);
 
         // Check that the interfaces are implemented
@@ -60,7 +61,7 @@ public class InterfacingTest {
     /* - Preparation - */
     /* - - - - - - - - */
 
-    @Before
+    @BeforeEach
     public void prepare()
             throws ClassNotFoundException {
         // Initialize

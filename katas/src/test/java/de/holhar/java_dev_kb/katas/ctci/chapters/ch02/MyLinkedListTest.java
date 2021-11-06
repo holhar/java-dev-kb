@@ -1,126 +1,122 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch02;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-
-import static org.junit.Assert.*;
-
-public class MyLinkedListTest {
+class MyLinkedListTest {
 
     private MyLinkedList<Integer> list;
 
-    @Before
+    @BeforeEach
     public void setup() {
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
     }
 
     @Test
-    public void get() {
+    void get() {
     }
 
     @Test
-    public void getNull() {
+    void getNull() {
     }
 
     @Test
-    public void delete() {
+    void delete() {
     }
 
     @Test
-    public void removeDuplicates() {
+    void removeDuplicates() {
     }
 
     @Test
-    public void getKthToLast() {
+    void getKthToLast() {
     }
 
     @Test
-    public void deleteMiddleNode_firstElementNotDeleted() {
+    void deleteMiddleNode_firstElementNotDeleted() {
     }
 
     @Test
-    public void deleteMiddleNode_middleElement1() {
+    void deleteMiddleNode_middleElement1() {
     }
 
     @Test
-    public void deleteMiddleNode_middleElement2() {
+    void deleteMiddleNode_middleElement2() {
     }
 
     @Test
-    public void deleteMiddleNode_lastElementNotDeleted() {
+    void deleteMiddleNode_lastElementNotDeleted() {
     }
 
     @Test
-    public void partition() {
+    void partition() {
     }
 
     @Test
-    public void sumListsReverse1() {
+    void sumListsReverse1() {
     }
 
     @Test
-    public void sumListsReverse2() {
+    void sumListsReverse2() {
     }
 
     @Test
-    public void sumListsForward1() {
+    void sumListsForward1() {
     }
 
     @Test
-    public void sumListsForward2() {
+    void sumListsForward2() {
     }
 
     @Test
-    public void isPalindrome_isEven_isTrue() {
+    void isPalindrome_isEven_isTrue() {
     }
 
     @Test
-    public void isPalindrome_isOdd_isTrue() {
+    void isPalindrome_isOdd_isTrue() {
     }
 
     @Test
-    public void isPalindrome_isEven_isFalse() {
+    void isPalindrome_isEven_isFalse() {
     }
 
     @Test
-    public void isPalindrome_isOdd_isFalse() {
+    void isPalindrome_isOdd_isFalse() {
     }
 
     @Test
-    public void intersect_doIntersectAtBeginning() {
+    void intersect_doIntersectAtBeginning() {
     }
 
     @Test
-    public void intersect_doIntersectAtEnd() {
+    void intersect_doIntersectAtEnd() {
     }
 
     @Test
-    public void intersect_doIntersectAtMiddle() {
+    void intersect_doIntersectAtMiddle() {
     }
 
     @Test
-    public void intersect_doNotIntersect() {
+    void intersect_doNotIntersect() {
     }
 
     @Test
-    public void isCircularList_isLooping1() {
+    void isCircularList_isLooping1() {
     }
 
     @Test
-    public void isCircularList_isLooping2() {
+    void isCircularList_isLooping2() {
     }
 
     @Test
-    public void isCircularList_isLooping3() {
+    void isCircularList_isLooping3() {
     }
 
     @Test
-    public void isCircularList_isNotLooping() {
+    void isCircularList_isNotLooping() {
     }
 }

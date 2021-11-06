@@ -1,6 +1,6 @@
 package de.holhar.java_dev_kb.katas.codewars.algorithms.arrays;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PickPeaksTest {
+class PickPeaksTest {
 
     private static final String[] msg = {
             "should return an object with empty arrays if the input is an empty array",
@@ -49,7 +49,7 @@ public class PickPeaksTest {
     };
 
     @Test
-    public void sampleTests() {
+    void sampleTests() {
         for (int n = 0; n < msg.length; n++) {
             final int[] p1 = posS[n], p2 = peaksS[n];
             Map<String, List<Integer>> expected = new HashMap<String, List<Integer>>() {{
@@ -57,7 +57,7 @@ public class PickPeaksTest {
                 put("peaks", Arrays.stream(p2).boxed().collect(Collectors.toList()));
             }},
                     actual = PickPeaks.getPeaks(array[n]);
-            assertEquals(msg[n], expected, actual);
+            assertEquals(expected, actual, msg[n]);
         }
     }
 
