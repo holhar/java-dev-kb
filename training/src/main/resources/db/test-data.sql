@@ -1,0 +1,1 @@
+INSERT INTO Movie (title, releaseDate) VALUES ('Lost Highway', '1997-04-10 00:00:01');
