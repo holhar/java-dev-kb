@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303_jdbc_template_s0304_callbacks;
+package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303__08_jdbc_template_and_transactions;
 
 import de.holhar.java_dev_kb.training.pcps.ch08_testing.s0803_transactional.Movie;
 import org.slf4j.Logger;
@@ -14,12 +14,14 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Repository
-public class JdbcMovieRepository {
+public class MovieRepository {
 
-    private static final Logger logger = LoggerFactory.getLogger(JdbcMovieRepository.class);
+    private static final Logger logger = LoggerFactory.getLogger(MovieRepository.class);
 
     /**
      * Q3.3:
@@ -121,23 +123,66 @@ public class JdbcMovieRepository {
         }
     }
 
-    public JdbcMovieRepository(JdbcTemplate jdbcTemplate) {
+    public MovieRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    /**
+     * Q3.5:
+     * JdbcTemplate can execute plain SQL statements. Methods that accept one or more SQL strings as parameters are
+     * the following:
+     * batchUpdate, execute, query, queryForList, queryForMap, queryForObject, queryForRowSet, update
+     */
     public Optional<Movie> findById(Long id) {
         var sql = "select id, title, releaseDate from Movie where id=?";
         // Applying all JdbcTemplate callback interfaces for demo purposes:
         logger.info("Movie title by titleResultSetExtractor: '{}'", jdbcTemplate.query(sql, titleResultSetExtractor, id));
         jdbcTemplate.query(sql, new MovieLoggerRowCallbackHandler(logger), id);
-        return Optional.of(jdbcTemplate.queryForObject(sql, movieRowMapper, id));
+        return Optional.ofNullable(jdbcTemplate.queryForObject(sql, movieRowMapper, id));
     }
 
+    /**
+     * Q3.6:
+     * JdbcTemplate acquires and releases a database connection for every method call to avoid holding on to database
+     * connection resources longer than necessary. For db connection pools in use, the connections are returned to
+     * the pool for others to use.
+     */
     public void save(Movie movie) {
         var sql = "insert into Movie (title, releaseDate) values (?, ?)";
         LocalDateTime localDateTime = LocalDateTime.of(movie.getReleaseDate(), LocalTime.now());
-        jdbcTemplate.query(sql, movieRowMapper, movie.getTitle(), Timestamp.valueOf(localDateTime));
+        jdbcTemplate.update(sql, movie.getTitle(), Timestamp.valueOf(localDateTime));
     }
 
+    /**
+     * Q3.7:
+     * The JdbcTemplate provides the developer a multitude of methods to query generic maps and lists. Below are
+     * three examples for these type of queries. The methods are overloaded, consult the {@link JdbcTemplate} class
+     * for the complete list of methods.
+     */
+    public List<Map<String, Object>> findAll() {
+        // Returns a list containing a map with column titles as keys and column values as values of the map
+        return jdbcTemplate.queryForList("select * from Movie");
+    }
 
+    public List<String> findAllTitles() {
+        // Returns a list of specified type - applicable for single column ResultSets
+        return jdbcTemplate.queryForList("select title from Movie", String.class);
+    }
+
+    public Map<String, Object> findByTitle(String title) {
+        // Returns a single row containing all column values in form of a map with the column title as key and the
+        // column values as value of the map
+        return jdbcTemplate.queryForMap("select title, releaseDate from Movie where title=?", title);
+    }
+
+    /*
+     * Bogus code, just for demo purposes of the @Transactional behaviour
+     */
+    public void deleteFirstEntries() {
+        jdbcTemplate.update("delete from Movie where id=1");
+        if (true) {
+            throw new IllegalStateException("Exception thrown - rollback deleted movies");
+        }
+        jdbcTemplate.update("delete from Movie where id=2");
+    }
 }

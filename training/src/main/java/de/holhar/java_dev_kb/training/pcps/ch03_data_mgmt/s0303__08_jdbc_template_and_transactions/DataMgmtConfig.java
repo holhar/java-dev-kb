@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303_jdbc_template_s0304_callbacks;
+package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303__08_jdbc_template_and_transactions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,19 +9,23 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.sql.Driver;
 
 @Configuration
+@EnableTransactionManagement
 @PropertySource("classpath:db/test-datasource.properties")
-public class JdbcTemplateConfig {
+public class DataMgmtConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(JdbcTemplateConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(DataMgmtConfig.class);
 
     @Value("${db.driverClassName}")
     private String driverClassName;
@@ -65,6 +69,11 @@ public class JdbcTemplateConfig {
         populator.addScript(schemaScript);
         populator.addScript(dataScript);
         return populator;
+    }
+
+    @Bean
+    public PlatformTransactionManager dataSourceTransactionManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 
     @Bean
