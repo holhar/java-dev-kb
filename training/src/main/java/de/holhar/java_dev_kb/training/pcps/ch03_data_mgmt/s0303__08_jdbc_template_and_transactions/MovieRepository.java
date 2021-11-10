@@ -47,6 +47,10 @@ public class MovieRepository {
      *
      * Benefits from using JdbcTemplate are simplification, exception handling and translation, functionality
      * customization, proper db resources handling etc...
+     *
+     * Q3.11:
+     * The JdbcTemplate is able to participate in existing transactions when declarative and programmatic transaction
+     * management is used. This is accomplished by wrapping the DataSource using a TransactionAwareDataSourceProxy.
      */
     private final JdbcTemplate jdbcTemplate;
 
@@ -123,8 +127,8 @@ public class MovieRepository {
         }
     }
 
-    public MovieRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public MovieRepository(JdbcTemplate customJdbcTemplate) {
+        this.jdbcTemplate = customJdbcTemplate;
     }
 
     /**

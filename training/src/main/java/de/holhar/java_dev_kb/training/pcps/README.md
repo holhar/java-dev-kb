@@ -189,7 +189,7 @@ guide of [VMware Pivotal Labs](https://d1fto35gcfffzn.cloudfront.net/academy/Spr
 
 4.1 What is a Spring Data Repository interface?
 
-4.2 How do you define a Spring Data Repository interface?  Why is it an interface not a class?
+4.2 How do you define a Spring Data Repository interface? Why is it an interface and not a class?
 
 4.3 What is the naming convention for finder methods in a Spring Data Repository interface?
 
