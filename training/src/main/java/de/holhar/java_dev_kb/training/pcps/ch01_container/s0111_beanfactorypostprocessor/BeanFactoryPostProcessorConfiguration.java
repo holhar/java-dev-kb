@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 public class BeanFactoryPostProcessorConfiguration {
 
     /**
+     * Q1.11:
      * PropertySourcesPlaceholderConfigurer implements {@link org.springframework.beans.factory.config.BeanFactoryPostProcessor}.
      *
      * During the initialization process in the bean lifecycle, beans are further processed before initialization

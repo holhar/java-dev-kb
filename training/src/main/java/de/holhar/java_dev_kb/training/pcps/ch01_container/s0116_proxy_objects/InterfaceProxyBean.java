@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 /**
+ * Q1.16:
  * Specify Prototype-scoped bean with an interface-based proxy class, i.e. the proxy is created by the (required)
  * implemented interface of the class (technology basis are JDK Dynamic Proxies).
  */

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Q1.4:
  * AnnotationConfigApplicationContext is used with standalone applications that use Java configuration, annotated
  * with @Configuration (see {@link de.holhar.java_dev_kb.training.pcps.ch01_container.s0104_application_context.config.ApplicationConfiguration}
  * for an example).

@@ -30,7 +30,7 @@ public class Aspects {
     private static final Logger logger = LoggerFactory.getLogger(Aspects.class);
 
     /**
-     * CONCEPTS
+     * Q2.1/Q2.2/Q2.3: CONCEPTS
      *
      * A Pointcut is a predicate that helps match an Advice to be applied by an Aspect at a particular joinPoint.
      * We often associate the Advice with a Pointcut expression, and it runs at any Joinpoint matched by the Pointcut.
@@ -46,7 +46,7 @@ public class Aspects {
      */
 
     /**
-     * POINTCUTS - START
+     * Q2.6: POINTCUTS - START
      */
 
     /**
@@ -134,7 +134,7 @@ public class Aspects {
      */
 
     /**
-     * ADVICES - START
+     * Q2.5: ADVICES - START
      */
 
     /**
@@ -205,7 +205,7 @@ public class Aspects {
      * NOTE: Is the only advice capable of catching and handling exceptions that can occur during processing of the
      * joinPoint.
      *
-     * FURTHERMORE: ProceedingJoinPoint is optional, but must be the first param, if present. It holds information
+     * Q2.8: ProceedingJoinPoint is optional, but must be the first param, if present. It holds information
      * about type of joinPoint, signature of executed method, target object (bean), currently executing object (proxy
      * object). Also, ProceedingJoinPoint interface adds to proceed methods to control the flow of the joinPoint
      * method: proceed() and process(Object[] args)

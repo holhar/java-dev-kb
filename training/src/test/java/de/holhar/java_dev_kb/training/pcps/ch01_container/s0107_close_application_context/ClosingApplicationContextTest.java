@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ClosingApplicationContextTest {
 
     /**
+     * Q1.7:
      * The test method illustrates the mechanism involved for closing the application context for non-web
      * applications. For Spring web applications the ContextLoaderListener takes care of it by receiving a
      * ServletContextEvent when the container stops the web application.

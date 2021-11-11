@@ -9,14 +9,16 @@ import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
 
-@SpringBootApplication(scanBasePackages = "s0126_environment_s0127_property_sources")
+@SpringBootApplication(scanBasePackages = "de.holhar.java_dev_kb.training.pcps.ch01_container.s0126_environment_s0127_property_sources")
 public class EnvironmentApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(EnvironmentApplication.class);
 
     /**
+     * Q1.26:
      * The environment is part of the application container and contains profiles and properties.
      *
+     * Q1.27:
      * Default properties of non-web applications:
      * - JVM system properties
      * - System environment variables

@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 /**
+ * Q8.4:
  * Mockito and EasyMock allow dynamic mock object creation, which simulate the behaviour of dependencies of the class
  * under test. The behaviour of the mock, i.e. the results the used methods yield are programmable in dedicated tests.
  * Additionally, it is possible to verify method invocation sequences, parameters supplied to the methods etc.

@@ -3,6 +3,7 @@ package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0301_exceptions;
 import org.springframework.dao.DataAccessException;
 
 /**
+ * Q3.1:
  * {@link DataAccessException} and all of its subclasses form the 'data exception hierarchy' - they are all unchecked.
  * Unlike checked exceptions, unchecked exceptions must not be declared or caught/handled by the methods that might
  * throw the corresponding exception (this is enforced by the Java compiler). All exceptions inheriting from

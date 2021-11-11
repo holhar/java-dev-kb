@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 /**
+ * Q1.20:
  * Beans defined in this configuration class will be only created for profiles "dev" and "qa".
  * Also, the DependencyTwo bean will NOT be created for "prod", specified by the explanation mark in front of the
  * profile name.

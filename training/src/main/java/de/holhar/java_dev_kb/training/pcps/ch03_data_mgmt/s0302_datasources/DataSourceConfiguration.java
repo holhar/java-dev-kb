@@ -29,6 +29,7 @@ public class DataSourceConfiguration {
     }
 
     /**
+     * Q3.2:
      * {@link DataSource} is the interface from which all data-source classes related to SQL stem.
      *
      * Below is an example for configuring a DataSource for a standalone application via Java configuration. In a

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
+ * Q1.10:
  * A property source represents a source of key-value pairs.
  * Valid sources are:
  * - system props of JVM

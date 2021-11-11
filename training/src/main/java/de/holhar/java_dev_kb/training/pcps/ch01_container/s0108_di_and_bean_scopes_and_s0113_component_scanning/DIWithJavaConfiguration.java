@@ -11,7 +11,8 @@ import org.springframework.context.annotation.FilterType;
  *  bean definitions and service requests for those beans at runtime.
  */
 @Configuration
-/*
+/**
+ * Q1.13:
  * Configures component scanning directives for use with @Configuration classes. Provides support parallel with
  * Spring XML's <context:component-scan> element. Either basePackageClasses or basePackages (or its alias value) may
  * be specified to define specific packages to scan. If specific packages are not defined, scanning will occur from

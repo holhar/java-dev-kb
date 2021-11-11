@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextLoader;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
+ * Q8.5:
  * @ContextConfiguration defines class-level metadata that is used to determine how to load and configure an
  * ApplicationContext for integration tests.
  */

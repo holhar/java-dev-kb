@@ -17,6 +17,7 @@ public class LiteralInjectionConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(LiteralInjectionConfiguration.class);
 
     /**
+     * Q1.24:
      * Literals (which can have their origin in env variables, property files, Spring beans etc.) can be injected with
      * the @Value annotation.
      *
@@ -30,7 +31,7 @@ public class LiteralInjectionConfiguration {
      * Note that actual processing of the @Value annotation is performed by a BeanPostProcessor which in turn means
      * that you cannot use @Value within BeanPostProcessor or BeanFactoryPostProcessor types.
      *
-     * NOTE: Expression starting with $ - references a property name in application environment (evaluated by
+     * Q1.29: Expression starting with $ - references a property name in application environment (evaluated by
      * {@link org.springframework.context.support.PropertySourcesPlaceholderConfigurer})
      */
     @Value("${timeout.initial:${timeout.fallback}}")
@@ -39,7 +40,7 @@ public class LiteralInjectionConfiguration {
     /**
      * Injecting a value that results from a SpEl expression
      *
-     * NOTE: Expression starting with # - a dedicated SpEL expression parsed by {@link SpelExpressionParser} and
+     * Q1.29: Expression starting with # - a dedicated SpEL expression parsed by {@link SpelExpressionParser} and
      * evaluated by SpEL expression instance
      */
     @Value("#{ T(java.lang.Math).random() * 50.0 }")

@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-/*
- * @SpringJunitConfig combines @ExtendWith(SpringExtension.class) with @ContextConfiguration
+/**
+ * Q1.6: @SpringJunitConfig combines @ExtendWith(SpringExtension.class) with @ContextConfiguration
  */
 @SpringJUnitConfig(classes = TestConfiguration.class)
 class JUnit5SpringTest {

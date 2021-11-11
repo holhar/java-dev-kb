@@ -21,6 +21,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 /**
+ * Q8.6:
  * Spring Boot simplifies writing tests by adding the following features:
  * - Provides starter module 'spring-boot-starter-test', which adds the following test-scoped dependencies:
  *   JUnit, Spring Test, Spring Boot Test, AssertJ, Hamcrest, Mockito, JSONAssert, and JSONPath.
@@ -36,6 +37,7 @@ import static org.mockito.Mockito.verify;
  * - Auto-configuration for tests related to several technologies that can be used in Spring Boot applications. E.g.
  *   JPA, JDBC, MongoDB, Neo4J, Redis, ...
  *
+ * Q8.7:
  * @SpringBootTest annotation the following features:
  * - Uses SpringBootContextLoader as default ContextLoader, provided that no other ContextLoader is specified using
  *   the @ContextConfiguration annotation

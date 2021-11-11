@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+// Q1.6:
 // Ensure context is loaded by using @RunWith in conjunction with SpringRunner
 //@RunWith(SpringRunner.class)
 // Optionally specify XML configuration file or Java configuration class to be loaded into application context

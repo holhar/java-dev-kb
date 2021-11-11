@@ -5,6 +5,7 @@ public class Store {
     private Item item;
 
     /**
+     * Q1.1:
      * Setting up an object dependency the traditional way.
      * The object has to know about the concrete type of the dependency.
      */

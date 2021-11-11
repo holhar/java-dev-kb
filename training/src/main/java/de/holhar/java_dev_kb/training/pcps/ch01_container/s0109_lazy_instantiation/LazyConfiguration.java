@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
 /**
+ * Q1.9:
  * Indicates whether a bean is to be lazily initialized.
  * May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
  *

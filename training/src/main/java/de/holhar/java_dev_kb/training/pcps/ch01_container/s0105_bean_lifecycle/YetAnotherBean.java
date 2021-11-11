@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
+ * Q1.5:
  * Bean lifecycle in general:
  * INITIALIZATION
  * 1. ApplicationContext initialization

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
+ * Q1.4:
  * For configuration and initialization of Servlet 2 based Spring web applications see /webapp/WEB-INF/web.xml file
  * below the module root. In Servlet 3 standard the web.xml has become optional and a class implementing the
  * {@link org.springframework.web.WebApplicationInitializer} can be used to create a Spring application context.

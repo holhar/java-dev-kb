@@ -10,6 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
 
+// Q1.6:
 @SpringJUnitConfig(classes = TestConfiguration.class)
 @WebAppConfiguration
 public class SpringWebJUnit5Test {    private static final Logger logger = LoggerFactory.getLogger(JUnit4SpringTest.class);

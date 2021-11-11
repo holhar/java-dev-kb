@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 public class AutowiredComponent {
 
     /**
-     * @Autowired on field level.
-     * Referencing the method name of the bean definition for DependencyThree as @Qualifier value.
+     * Q1.14: @Autowired on field level.
+     * Q1.15: Referencing the method name of the bean definition for DependencyThree as @Qualifier value.
      */
     @Autowired
     @Qualifier("deviatingBeanIdentifier")
@@ -18,8 +18,8 @@ public class AutowiredComponent {
     private DependencyThree dependencyThree;
 
     /**
-     * @Autowired on constructor level.
-     * Referencing the @Bean value used for {@link DependencyTwo} as @Qualifier value.
+     * Q1.14: @Autowired on constructor level.
+     * Q1.15: Referencing the @Bean value used for {@link DependencyTwo} as @Qualifier value.
      */
     @Autowired
     public AutowiredComponent(@Qualifier("exoticBeanName") DependencyTwo dependencyTwo) {
@@ -27,8 +27,8 @@ public class AutowiredComponent {
     }
 
     /**
-     * @Autowired on method level.
-     * Referencing the @Component value used for {@link DependencyThree} as parameter name.
+     * Q1.14: @Autowired on method level.
+     * Q1.15: Referencing the @Component value used for {@link DependencyThree} as parameter name.
      */
     @Autowired
     public void setDependencyThree(DependencyThree awesomeBeanName) {

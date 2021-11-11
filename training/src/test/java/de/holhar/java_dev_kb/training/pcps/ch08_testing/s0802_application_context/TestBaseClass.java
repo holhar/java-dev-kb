@@ -5,6 +5,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
+ * Q8.1:
  * SpringRunner to apply test with Spring TestContext Framework, that is, with an application context.
  *
  * Typically, used for integration tests to validate interaction between components. In general, avoided for unit
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  */
 @ExtendWith(SpringExtension.class)
 /**
+ * Q8.2:
  * @ContextConfiguration defines class-level metadata that is used to determine how to load and configure an
  * ApplicationContext for integration tests.
  *

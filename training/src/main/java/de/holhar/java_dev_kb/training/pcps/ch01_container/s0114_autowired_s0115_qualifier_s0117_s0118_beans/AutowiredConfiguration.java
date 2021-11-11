@@ -7,9 +7,11 @@ import org.springframework.context.annotation.Configuration;
 public class AutowiredConfiguration {
 
     /**
+     * Q1.17:
      * @Bean indicates that a method produces a bean to be managed by the Spring container.
      * initMethod and destroyMethod are configurable within @Bean annotation
      *
+     * Q1.18:
      * Bean Names - While a name attribute is available, the default strategy for determining the name of a bean is to
      * use the name of the @Bean method. This is convenient and intuitive, but if explicit naming is desired, the
      * name attribute (or its alias value) may be used. Also note that name accepts an array of Strings, allowing for

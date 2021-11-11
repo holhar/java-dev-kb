@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303__08_jdbc_template_and_transactions;
+package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303__0312_jdbc_template_and_transactions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

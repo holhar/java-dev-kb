@@ -32,6 +32,7 @@ public class SpELApplication {
     }
 
     /**
+     * Q1.25
      * The Spring Expression Language (“SpEL” for short) is a powerful expression language that supports querying and
      * manipulating an object graph at runtime. The language syntax is similar to Unified EL but offers additional
      * features, most notably method invocation and basic string templating functionality.
@@ -88,7 +89,8 @@ public class SpELApplication {
         // - Collection projection
         // - Expression templating
 
-        /*
+        /**
+         * Q1.28:
          * SpEL can reference:
          * - Static methods and static properties/fields
          * - Properties and methods in Spring beans

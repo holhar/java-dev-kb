@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanPostProcessorConfiguration {
 
     /**
+     * Q1.12:
      * AutowiredAnnotationBeanPostProcessor implements {@link org.springframework.beans.factory.config.BeanPostProcessor}.
      *
      * During the initialization process in the bean lifecycle, beans are further processed after dependency injection

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * Q1.8:
  * DI is a two-step process:
  * 1. dependency definition through either constructor arguments, properties by setters, parameters to a factory method
  * 2. dependency injection through Spring container
