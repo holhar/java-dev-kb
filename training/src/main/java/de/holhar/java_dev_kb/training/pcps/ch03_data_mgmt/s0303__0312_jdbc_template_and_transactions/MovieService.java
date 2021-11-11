@@ -4,6 +4,7 @@ import de.holhar.java_dev_kb.training.pcps.ch08_testing.s0803_transactional.Movi
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -59,7 +60,7 @@ public class MovieService {
      * Q3.10.a:
      * Transaction is used for declarative transaction management and ban be applied to methods and classes. It
      * specifies the transaction attributes for the method(s) it is active for:
-     * - isolation: the transaction isolation level (see Q3.11.a and propagation for an elaboration)
+     * - isolation: the transaction isolation level (see Q3.11.a and Q3.13 for an elaboration)
      * - noRollbackFor: exception classes that do not trigger a transaction rollback
      * - noRollbackForClassName: names of exception classes that do not trigger a transaction rollback
      * - propagation: transaction propagation (see Q3.13 for an elaboration)
@@ -68,8 +69,34 @@ public class MovieService {
      * - rollbackForClassName: names of exception classes that do trigger a transaction rollback
      * - timeout: transaction timeout (see propagation)
      * - transactionManager: name of the transaction manager Spring bean
+     *
+     * Q3.14
+     * A self-invocation of a proxied Spring bean effectively bypasses the proxy and thus also
+     * any transaction interceptor managing transactions. Thus, the second method, the method being
+     * invoked from another method in the bean, will execute in the same transaction context as the first.
+     * Any configuration in a @Transactional annotation on the second method will not come into effect.
+     *
+     * Q3.15
+     * The @Transactional annotation can be used on class and method level in classes and interfaces. When using
+     * Spring AOP proxies, only @Transactional annotations on public methods will have any effect – applying the
+     * @Transactional annotation to protected or private methods or methods with package visibility will not cause
+     * errors but will not give the desired transaction management, as above.
+     *
+     * Q3.17
+     * The default rollback policy of Spring transaction management is that an automatic rollback only takes place in
+     * the case of an unchecked exception being thrown. The types of exceptions that are to cause a rollback can be
+     * configured using the rollbackFor element of the @Transactional annotation. In addition, the types of
+     * exceptions that not are to cause rollbacks can also be configured using the noRollbackFor element.
      */
-    @Transactional
+    @Transactional(
+            /**
+             * Q3.13
+             * Transaction propagation determines the way an existing transaction is used, depending on the
+             * transaction propagation configured in the @Transactional annotation on the method, when the method is
+             * invoked (see docs for elaboration of all seven types supported)
+            */
+            propagation = Propagation.REQUIRED // Support a current transaction, create a new one if none exists
+    )
     public void deleteFirstEntries() {
         movieRepository.deleteFirstEntries();
     }

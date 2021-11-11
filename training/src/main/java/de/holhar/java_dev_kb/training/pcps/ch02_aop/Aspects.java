@@ -42,6 +42,11 @@ public class Aspects {
      * the joins points specified by the pointcuts in the aspects. Weaving can occur at compile time, load time or
      * runtime. For the latter Spring uses proxy objects in terms of JDK dynamic proxies and CGLIB proxies
      *
+     * Q2.4:
+     * Proxy objects limitations: A self-invocation of a proxied Spring bean effectively bypasses the proxy and thus
+     * also. Thus, the second method, the method being invoked from another method in the bean, will execute in the
+     * same context as the first.
+     *
      * POI: https://www.baeldung.com/spring-aop-pointcut-tutorial
      */
 
