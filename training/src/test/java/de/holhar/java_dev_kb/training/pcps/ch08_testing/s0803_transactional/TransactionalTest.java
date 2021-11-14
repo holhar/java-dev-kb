@@ -30,8 +30,10 @@ class TransactionalTest {
      * At the class level, this annotation applies as a default to all methods of the declaring class and its
      * subclasses.
      *
+     * Q3.18:
      * Restores database state after the test was run. A transaction in which a test method is executed will be
-     * rolled back after the test has been run.
+     * rolled back after the test has been run. This is the default behaviour. Rollback can be switched off by using
+     * the @Rollback annotation and setting 'value' property to 'false'.
      */
     @Rollback
     @Transactional

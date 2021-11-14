@@ -1,0 +1,14 @@
+# POI: https://medium.com/better-programming/setting-up-mysql-database-in-a-docker-d6c69a3e9afe
+version: '3'
+
+services:
+
+  fcicdb:
+    image: mysql:8.0.17
+    container_name: testdb
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"

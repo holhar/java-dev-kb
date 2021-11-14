@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303__0312_jdbc_template_and_transactions;
+package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0303__0320_jdbc_template_and_transactions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +15,7 @@ import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -114,10 +115,27 @@ public class DataMgmtConfig {
      * - TransactionStatus getTransaction(TransactionDefinition)
      */
     @Bean
-    public PlatformTransactionManager dataSourceTransactionManager() {
+    public TransactionManager dataSourceTransactionManager() {
+        /**
+         * Q3.19:
+         * The Spring JpaTransactionManager supports direct DataSource access within one and the same transaction
+         * allowing for mixing plain JDBC code that is unaware of JPA with code that use JPA.
+         *
+         * Q3.20:
+         * Any JTA transaction manager can be used with JPA since JTA transactions are global transactions, that is
+         * they can span multiple resources such as databases, queues etc. Thus, JPA persistence becomes just another
+         * of these resources that can be involved in a transaction.
+         */
         return new DataSourceTransactionManager(dataSource());
     }
 
+    /**
+     * Q3.18.a:
+     * The underlying data source might be configured with auto-commit to 'true', so that each and every JDBC
+     * template query will result in committed database operation. This behaviour makes it impossible for treating
+     * multiple corresponding SQL operations as a "unit of work", i.e. a transaction. Even though a method is marked
+     * as to be transactional, the performed SQL statements can not be rolled back.
+     */
     @Bean
     public JdbcTemplate customJdbcTemplate() {
         return new JdbcTemplate(dataSource());
