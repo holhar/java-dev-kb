@@ -5,6 +5,11 @@
          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
     <!--
+        NOTE: this file is intentionally renamed from 'web.xml' to 'w3b.xml' to avoid that it is picked up for the
+        Tomcat deployment of the example Spring web app in de.holhar.java_dev_kb.training.pcps.ch05_web_mvc package.
+    -->
+
+    <!--
         Chapter 1: IoC, DI and Spring Container; Question 1.4: ApplicationContext creation
         Servlet 2 standard requires a web.xml file located in WEB-INF and a Spring XML configuration file, also
         located in WEB-INF for setting up the application context

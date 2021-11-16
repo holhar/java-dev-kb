@@ -11,10 +11,13 @@
 
     <groupId>de.holhar.java-dev-kb</groupId>
     <artifactId>training</artifactId>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+
+        <start-class>de.holhar.java_dev_kb.training.pcps.ch04_data_jpa.DataJpaApplication</start-class>
     </properties>
 
 </project>

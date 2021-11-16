@@ -5,7 +5,6 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
@@ -21,7 +20,7 @@ public class MyXmlWebApplicationInitializer implements WebApplicationInitializer
     @Override
     public void onStartup(ServletContext servletContext) {
         final XmlWebApplicationContext xmlWebApplicationContext = new XmlWebApplicationContext();
-        xmlWebApplicationContext.setConfigLocation("/webapp/WEB-INF/applicationContext.xml");
+        xmlWebApplicationContext.setConfigLocation("/WEB-INF/applicationContext.xml");
         xmlWebApplicationContext.setServletContext(servletContext);
         xmlWebApplicationContext.refresh();
         xmlWebApplicationContext.start();
@@ -30,7 +29,7 @@ public class MyXmlWebApplicationInitializer implements WebApplicationInitializer
          * Create and register DispatcherServlet to enable the application to process web requests.
          */
         final DispatcherServlet dispatcherServlet = new DispatcherServlet(xmlWebApplicationContext);
-        final ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("app", dispatcherServlet);
+        final ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("app1", dispatcherServlet);
         servletRegistration.setLoadOnStartup(1);
         servletRegistration.addMapping("/app/*");
     }
