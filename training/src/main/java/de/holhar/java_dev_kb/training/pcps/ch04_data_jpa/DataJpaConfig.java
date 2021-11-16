@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0321_jpa;
+package de.holhar.java_dev_kb.training.pcps.ch04_data_jpa;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,27 +22,13 @@ import javax.sql.DataSource;
 import java.sql.Driver;
 import java.util.Properties;
 
-/**
- * Q3.21:
- * 1. Declare dependencies.
- * 2. Implement entity classes with mapping metadata in the form of annotations (see {@link Movie} for an example).
- * 3. Define an {@link EntityManagerFactory} bean (see {@link this#entityManagerFactory()} below).
- * 4. Define a {@link DataSource} bean (see {@link this#dataSource()} below).
- * 5. Define a {@link TransactionManager} bean (see {@link this#dataSourceTransactionManager()} below).
- * 6. Implement repositories.
- *
- * Spring Boot provides a starter module that:
- * - Provides a default set of dependencies needed for using JPA in a Spring application.
- * - Provides all the Spring beans needed to use JPA (these beans can be easily customized by declaring bean(s) with
- *   the same name(s) in the application, as is standard in Spring applications).
- * - Provides a number of default properties related to persistence and JPA (these properties can be easily
- *   customized by declaring one or more properties in the application properties-file supplying new values).
- */
 @Configuration
+// Q4.2:
+//@EnableJpaRepositories <== needed in case of not manually configured entityManagerFactory
 @PropertySource("classpath:db/test-jpa-datasource.properties")
-public class JpaDbConfig {
+public class DataJpaConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(JpaDbConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);
 
     @Value("${db.driverClassName}")
     private String driverClassName;
@@ -59,7 +45,7 @@ public class JpaDbConfig {
     }
 
     @Bean
-    public TransactionManager dataSourceTransactionManager() {
+    public TransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
 
@@ -83,7 +69,7 @@ public class JpaDbConfig {
     @Value("classpath:db/schema.sql")
     private Resource schemaScript;
 
-    @Value("classpath:db/test-data.sql")
+    @Value("classpath:db/test-jpa-data.sql")
     private Resource dataScript;
 
     private DatabasePopulator databasePopulator() {
@@ -92,18 +78,10 @@ public class JpaDbConfig {
         return populator;
     }
 
-    /**
-     * An entity manager factory is used to interact with a persistence unit. On the entity manager factory the
-     * following are typically configured:
-     * - an adapter for the ORM implementation to be used by the application, for example Hibernate or EclipseLink
-     * - the type of database used by the application
-     * - ORM configuration properties
-     * - the package(s) in the application in which to scan for entities
-     */
     @Bean
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setPackagesToScan("de.holhar.java_dev_kb.training.pcps.ch03_data_mgmt.s0321_jpa");
+        factoryBean.setPackagesToScan("de.holhar.java_dev_kb.training.pcps.ch04_data_jpa");
         factoryBean.setDataSource(dataSource());
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         factoryBean.setJpaProperties(hibernateProperties());

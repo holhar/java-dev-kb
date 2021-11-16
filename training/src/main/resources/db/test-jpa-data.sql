@@ -1,0 +1,10 @@
+TRUNCATE TABLE Movie;
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (1, 'Lost Highway', '1997-04-10 00:00:01', 'David Lynch', 'Thriller');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (2, 'Die Hard', '1988-11-10 00:00:01', 'John McTiernan', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (3, 'Terminator 2', '1991-10-24 00:00:01', 'James Cameron', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (4, 'Terminator', '1984-03-15 00:00:01', 'James Cameron', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (5, 'Mad Max: Fury Road', '2015-05-14 00:00:01', 'George Miller', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (6, 'Matrix', '199-06-17 00:00:01', 'Lana and Lili Wachowski', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (7, 'Raiders of the Lost Ark', '1981-10-29 00:00:01', 'Steven Spielberg', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (8, 'Bullitt', '1969-01-03 00:00:01', 'Peter Yates', 'Action');
+INSERT INTO Movie (id, title, releaseDate, director, genre) VALUES (9, 'Se7en', '1995-11-23 00:00:01', 'David Fincher', 'Thriller');
