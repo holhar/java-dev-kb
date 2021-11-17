@@ -245,9 +245,7 @@ guide of [VMware Pivotal Labs](https://d1fto35gcfffzn.cloudfront.net/academy/Spr
 
 6.12 Where do you need to use @ResponseBody? What about @RequestBody?
 
-6.13 If you saw example Controller code, would you understand what it is doing?  Could you
-
-tell if it was annotated correctly?
+6.13 If you saw example Controller code, would you understand what it is doing?  Could you tell if it was annotated correctly?
 
 6.14 What Spring Boot starter would you use for a Spring REST application?
 

@@ -3,6 +3,7 @@ package de.holhar.java_dev_kb.training.pcps.ch05_web_mvc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -11,6 +12,25 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * Q5.2:
+ * To map incoming requests to a controller and its methods the following steps need to be applied:
+ * - enable component scanning, see {@link ComponentScan} (enables auto-detection of @Controller-annotated classes)
+ * - annotate one of the configuration classes of the application with {@link EnableWebMvc} (for Spring Boot
+ *   applications it's sufficient to have one configuration class that implements {@link WebMvcConfigurer})
+ * - implement a controller class with {@link Controller} (see {@link WebMvcController})
+ * - implement at least on method of the controller class with {@link RequestMapping} (see {@link WebMvcController#index(Model)})
+ *
+ * When a request is issued to the application:
+ * - the/a DispatcherServlet of the application receives the request
+ * - the/a DispatcherServlet maps the request to a method in a controller (the DispatcherServlet holds a list of
+ *   classes implementing the HandlerMapping interface)
+ * - the/a DispatcherServlet dispatches the request to the controller
+ * - the method in the controller is executed
+ */
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "de.holhar.java_dev_kb.training.pcps.ch05_web_mvc")
@@ -23,7 +43,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return resolver;
     }*/
 
-    // Commented this to implement exception handling with simpleMappingExceptionResolver() above
+    // Comment this to implement exception handling with simpleMappingExceptionResolver() above
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
