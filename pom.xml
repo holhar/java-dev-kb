@@ -38,6 +38,11 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <!--
+                Q6.14:
+                Use 'spring-boot-starter-web' for building a Spring REST application.
+                Transitive dependencies are 'spring-webmvc' and 'spring-web'.
+            -->
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>

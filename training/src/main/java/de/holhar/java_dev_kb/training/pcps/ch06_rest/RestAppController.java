@@ -1,6 +1,7 @@
 package de.holhar.java_dev_kb.training.pcps.ch06_rest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.HttpInputMessage;
+
+import java.util.Map;
+
+import de.holhar.java_dev_kb.training.pcps.ch05_web_mvc.WebMvcController;
 
 /**
  * Q6.1:
@@ -141,6 +146,17 @@ import org.springframework.http.HttpInputMessage;
  * 204 -> No Content
  * 205 -> Reset Content
  * 206 -> Partial Content
+ *
+ * Q6.12:
+ * @ResponseBody - as mentioned above, the @ResponseBody annotation is an annotation that can be applied to controller
+ * classes or controller handler methods. It is used when the web response body is to contain the result produced by
+ * the controller method(s).
+ *
+ * @RequestBody - the @RequestBody annotation can only be applied to parameters of methods. More specific, parameters
+ * of controller handler methods. It is used when the web request body is to be bound to a parameter of the
+ * controller handler method. That is, the annotated method parameter will contain the web request body when there is
+ * a request to be handled by the controller handler method with the annotated parameter. See
+ * {@link WebMvcController#params(Model, String, Map, String, String, String, String)} for an example.
  */
 @RestController
 public class RestAppController {
@@ -149,10 +165,12 @@ public class RestAppController {
      * The @RequestMapping annotation marks a method in a controller as a method that will be invoked
      * to handle requests that match the configuration in the @RequestMapping annotation.
      *
+     * Following RequestMapping configuration yields requests similar to this curl call:
+     * curl -X POST "http://localhost:8080/hello?myParam=myValue" -H"My-Header:myValue" -H"Content-Type:application/json" --data '{"foo":"bar"}'
      */
     @RequestMapping(
             path = "/hello",              // Path mapping URL
-            consumes = "application/zip",   // Consumable media types
+            consumes = "application/json",  // Consumable media types
             produces = "application/json",  // Media type(s) that can be produced
             method = RequestMethod.POST,    // HTTP method
             params = "myParam=myValue",     // parameters and values of the method
