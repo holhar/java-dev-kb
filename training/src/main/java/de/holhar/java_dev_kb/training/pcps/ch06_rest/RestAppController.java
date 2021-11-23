@@ -1,12 +1,13 @@
 package de.holhar.java_dev_kb.training.pcps.ch06_rest;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.HttpInputMessage;
-import org.springframework.http.HttpOutputMessage;
 
 /**
  * Q6.1:
@@ -94,11 +95,69 @@ import org.springframework.http.HttpOutputMessage;
  * A HttpMessageConverter converts a HttpInputMessage created from the request to the parameter type of the
  * controller method that is to process the request. When the controller method has finished, a HttpMessageConverter
  * converts the object returned from the controller method to a HttpOutputMessage.
+ *
+ * Q6.7:
+ * The @Controller annotation is a stereotype annotation. In addition, it is located in the
+ * org.springframework.stereotype package. The @RestController annotation is a stereotype annotation, given that its
+ * declaration is annotated with the @Controller annotation.
+ *
+ * Stereotype annotations are annotations that are applied to classes that fulfill a certain, distinct, role. The
+ * (core) Spring Framework supplies the following stereotype annotations, all found in the org.springframework.stereotype package:
+ * - @Component
+ * - @Controller
+ * - @Indexed
+ * - @Repository
+ * - @Service
+ * Other Spring projects do provide additional stereotype annotations.
+ *
+ * Q6.8:
+ * The @RestController annotation is an annotation that is annotated with the @Controller and the @ResponseBody
+ * annotations. That is, annotating a class with the @RestController annotation is identical to annotating the class
+ * with the @Controller and @ResponseBody annotations. When applied at class level, the @ResponseBody annotation
+ * applies to all the methods in the controller that handles web requests.
+ * Please refer to the next section for an explanation on the @ResponseBody annotation.
+ *
+ * Q6.9:
+ * The {@link ResponseBody}  annotation can be applied to either a controller class or a controller handler method.
+ * It causes the response to be created from the serialized result of the controller method result processed by a
+ * {@link HttpMessageConverter}. This is useful when you want the web response body to contain the result produced by
+ * the controller method, as is the case when implementing a backend service, for example a REST service. The
+ * @ResponseBody annotation is not needed if the controller class is annotated with @RestController.
+ *
+ * Q6.10:
+ * HTTP response status codes are three-digit integer codes where the first digit determines the class of the
+ * response. There are five different classes of HTTP response codes:
+ * - 1xx: Informational; The request has been received and processing of it continues
+ * - 2xx: Successful; The request has been successfully received, understood and accepted
+ * - 3xx: Redirection; Further action is needed to complete the request
+ * - 4xx: Client error; The request is incorrect or cannot be processed
+ * - 5xx: Server error; The server failed to process what appears to be a valid request
+ *
+ * The following HTTP response status codes are of the successful class:
+ * 200 -> OK
+ * 201 -> Created
+ * 202 -> Accepted
+ * 203 -> Non-Authoritative Information
+ * 204 -> No Content
+ * 205 -> Reset Content
+ * 206 -> Partial Content
  */
 @RestController
 public class RestAppController {
 
-    @GetMapping("/hello")
+    /**
+     * The @RequestMapping annotation marks a method in a controller as a method that will be invoked
+     * to handle requests that match the configuration in the @RequestMapping annotation.
+     *
+     */
+    @RequestMapping(
+            path = "/hello",              // Path mapping URL
+            consumes = "application/zip",   // Consumable media types
+            produces = "application/json",  // Media type(s) that can be produced
+            method = RequestMethod.POST,    // HTTP method
+            params = "myParam=myValue",     // parameters and values of the method
+            headers = "My-Header=myValue"   // Header(s)
+    )
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello dude!");
     }
