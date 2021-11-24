@@ -20,4 +20,10 @@
         <start-class>de.holhar.java_dev_kb.training.pcps.ch04_data_jpa.DataJpaApplication</start-class>
     </properties>
 
+    <dependencies><dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    </dependencies>
+
 </project>
