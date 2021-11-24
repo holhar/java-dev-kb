@@ -323,7 +323,7 @@ guide of [VMware Pivotal Labs](https://d1fto35gcfffzn.cloudfront.net/academy/Spr
 
 9.11 How do you configure default schema and initial data?
 
-9.12 What is a fat jar?  How is it different from the original jar?
+9.12 What is a fat jar? How is it different from the original jar?
 
 9.13 What embedded containers does Spring Boot support?
 
@@ -337,13 +337,13 @@ guide of [VMware Pivotal Labs](https://d1fto35gcfffzn.cloudfront.net/academy/Spr
 
 10.3 What does @SpringBootApplication do?
 
-10.4 Does Spring Boot do component scanning?  Where does it look by default?
+10.4 Does Spring Boot do component scanning? Where does it look by default?
 
 10.5 How are DataSource and JdbcTemplate auto-configured?
 
 10.6 What is spring.factories file for?
 
-10.7 How do you customize Spring Boot auto configuration?
+10.7 How do you customize Spring Boot auto-configuration?
 
 10.8 What are the examples of @Conditional annotations? How are they used?
 
@@ -387,7 +387,7 @@ guide of [VMware Pivotal Labs](https://d1fto35gcfffzn.cloudfront.net/academy/Spr
 
 12.2 What does @SpringBootTest auto-configure?
 
-12.3 What dependencies does spring-boot-starter-test brings to the classpath?
+12.3 What dependencies does spring-boot-starter-test bring to the classpath?
 
 12.4 How do you perform integration testing with @SpringBootTest for a web application?
 

@@ -1,9 +1,24 @@
 package de.holhar.java_dev_kb.training.pcps.ch07_security;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
+import javax.annotation.security.RolesAllowed;
+
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,6 +26,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 /**
  * Q7.1:
@@ -110,6 +129,90 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * - ExceptionTranslationFilter
  * - FilterSecurityInterceptor
  */
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    /**
+     * Q7.8:
+     * Password Hashing:
+     * -----------------
+     * Password hashing is the process of calculating a hash-value for a password. The hash-value is stored, for instance
+     * in a database, instead of storing the password itself. Later when a user attempts to log in, a hash-value is
+     * calculated for the password supplied by the user and compared to the stored hash-value. If the hash-values do  not
+     * match, the user has not supplied the correct password.
+     *
+     * In Spring Security, this process is referred to as password encoding and is implemented using the
+     * {@link PasswordEncoder} interface.
+     *
+     * Salting:
+     * --------
+     * A salt used when calculating the hash-value for a password is a sequence of random bytes that are used in
+     * combination with the cleartext password to calculate a hash-value. The salt is stored in
+     * cleartext alongside the password hash-value and can later be used when calculating hash-values for
+     * user-supplied passwords at login.
+     *
+     * The reason for salting is to avoid always having the same hash-value for a certain word, which would make it
+     * easier to guess passwords using a dictionary of hash-values and their corresponding passwords.
+     */
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder)
+                .withUser("user")
+                .password(passwordEncoder.encode("pass"))
+                .roles("USER");
+
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder)
+                .withUser("admin")
+                .password(passwordEncoder.encode("pass"))
+                .roles("ADMIN");
+
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder)
+                .withUser("superadmin")
+                .password(passwordEncoder.encode("pass"))
+                .roles("SUPERADMIN");
+    }
+
+    /**
+     * Q7.6:
+     * There are two wildcards that can be used in URL patterns:
+     * - *
+     * Matches any path on the level at which the wildcard occurs.
+     * Example: /services/* matches /services/users and /services/orders but not
+     * /services/orders/123/items.
+     *
+     * - **
+     * Matches any path on the level that the wildcard occurs and all levels below.
+     * If only /** or ** then will match any request.
+     * Example: /services/** matches /
+     *
+     * Q7.7:
+     * As an example antMatchers("/services") only matches the exact "/services" URL while mvcMatchers("/services")
+     * matches "/services" but also "/services/", "/services.html" and "/services.abc". Thus, the mvcMatcher matches more
+     * than the antMatcher and is more forgiving as far as configuration mistakes are concerned. In addition, the
+     * mvcMatchers API uses the same matching rules as used by the @RequestMapping annotation. Finally, the mvcMatchers
+     * API is newer than the antMatchers API.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable()
+                .and()
+                .authorizeRequests()
+                    .mvcMatchers("/user/**").hasRole("USER")
+                    .antMatchers("/admin/*").hasRole("ADMIN") // <= prefer mvcMatchers (see explanation above)
+                .and()
+                .httpBasic(withDefaults())
+                .csrf().disable();
+    }
 }
