@@ -1,7 +1,9 @@
 package de.holhar.java_dev_kb.training.pcps.ch06_rest;
 
+import de.holhar.java_dev_kb.training.pcps.ch06_rest.mock.Person;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -161,6 +163,12 @@ import de.holhar.java_dev_kb.training.pcps.ch05_web_mvc.WebMvcController;
 @RestController
 public class RestAppController {
 
+    private final RestTemplateService restTemplateService;
+
+    public RestAppController(RestTemplateService restTemplateService) {
+        this.restTemplateService = restTemplateService;
+    }
+
     /**
      * The @RequestMapping annotation marks a method in a controller as a method that will be invoked
      * to handle requests that match the configuration in the @RequestMapping annotation.
@@ -178,5 +186,10 @@ public class RestAppController {
     )
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello dude!");
+    }
+
+    @GetMapping("/test")
+    public Person get() {
+        return restTemplateService.getPerson(1);
     }
 }

@@ -3,7 +3,7 @@ package de.holhar.java_dev_kb.training.pcps.ch06_rest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "de.holhar.java_dev_kb.training.pcps.ch06_rest")
 public class RestApplication {
 
     public static void main(String[] args) {
