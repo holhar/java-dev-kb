@@ -5,7 +5,7 @@ import de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.util.even
 import de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.util.event.EventSource;
 
 /**
- * Implicitly allowing the this reference to escape.
+ * Implicitly allowing the 'this' reference to escape.
  * Don't do this.
  */
 public class ThisEscape {

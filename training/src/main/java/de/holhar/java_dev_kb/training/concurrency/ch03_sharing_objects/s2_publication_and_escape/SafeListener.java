@@ -5,7 +5,7 @@ import de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.util.even
 import de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.util.event.EventSource;
 
 /**
- * Using a factory method to prevent the this reference from escaping during construction.
+ * Using a factory method to prevent the 'this' reference from escaping during construction.
  */
 public class SafeListener {
 

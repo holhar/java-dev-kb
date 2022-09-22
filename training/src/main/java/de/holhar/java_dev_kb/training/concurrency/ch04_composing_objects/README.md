@@ -10,7 +10,7 @@ The design process for a thread-safe class should include these three basic elem
 
 ---
 
-You cannot ensure thread safety without understanding an object's invariants and postconditions.
+You cannot ensure thread safety without understanding an object's invariants and post-conditions.
 Constraints on the valid values or state transitions for state variables can create atomicity and encapsulation 
 requirements.
 

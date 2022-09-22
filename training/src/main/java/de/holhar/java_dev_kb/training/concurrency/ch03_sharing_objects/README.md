@@ -82,7 +82,7 @@ The publication requirements for an object depend on its mutability:
 
 ### Sharing objects safely
 
-The most useful policies for using and sharing objects in a concurrent proram are:
+The most useful policies for using and sharing objects in a concurrent program are:
 
 **Thread-confined**.
 A thread-confined object is owned exclusively by and confined to one thread, and can be modified by its owning thread.

@@ -12,7 +12,7 @@ public class UnsafeSequence {
 
     /** Returns a unique value. */
     public int getNext() {
-        // Only appears as one operations, actually it's three -> not thread safe!
+        // Appears to be one operation, actually it's three -> not thread safe!
         return value++;
     }
 }
