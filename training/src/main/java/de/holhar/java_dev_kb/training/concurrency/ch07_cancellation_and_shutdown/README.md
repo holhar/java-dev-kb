@@ -31,8 +31,9 @@ General-purpose task and library code should never swallow interruption requests
 
 ### Cancellation via Future
 
-When `Future.get` throws an `InterruptedException` or a `TimeoutException` and you know that the result is no longer 
+When `Future.get` throws `InterruptedException` or `TimeoutException` and you know that the result is no longer 
 needed by the program, cancel the task with `Future.cancel`.
+
 
 ----
 

@@ -32,6 +32,6 @@ public class HiddenIterator {
         for (int i = 0; i < 10; i++) {
             add(r.nextInt());
         }
-        LOGGER.debug("Added ten element to {}", set);
+        LOGGER.debug("Added ten elements to {}", set);
     }
 }

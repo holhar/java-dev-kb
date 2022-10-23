@@ -30,7 +30,7 @@ robust to overload by throttling activities that threaten to produce more work t
   synchronization policy.
 * *Guard each mutable variable with a lock.*
 * *Guard all variables in an invariant with the same lock.*
-* *Hold locks for the duration ov compound actions.*
+* *Hold locks for the duration of compound actions.*
 * *A program that accesses a mutable variable from multiple threads without synchronization is a broken program.*
 * *Don't rely on clever reasoning about why you don't need to synchronize.*
 * *Include thread safety in the design process - or explicitly document that your class is not thread-safe.*
