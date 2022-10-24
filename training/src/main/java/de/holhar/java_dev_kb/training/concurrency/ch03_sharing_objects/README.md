@@ -14,14 +14,14 @@ Locking is not just about mutual exclusion; it is also about memory visibility.
 To ensure that all threads see the most up-to-date values of shared mutable variables, the reading and writing 
 threads must synchronize on a common lock.
 
-(see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s1_visibility.MutableInteger and see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s1_visibility.SynchronizedInteger)
+(see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_1_visibility.MutableInteger and see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_1_visibility.SynchronizedInteger)
 
 ### Volatile variable
 
 Use `volatile` variables only when they simplify implementing and verifying your synchronization policy; avoid using 
 `volatile` variables when verifying correctness would require subtle reasoning about visibility.
 Good uses of `volatile` variables include ensuring the visibility of their own state, that of the object they refer 
-to, or indicating that an important life-cycle event (such as initialization or shutdown) has occurred (see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s1_visibility.SheepCounter).
+to, or indicating that an important life-cycle event (such as initialization or shutdown) has occurred (see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_1_visibility.SheepCounter).
 
 ----
 
