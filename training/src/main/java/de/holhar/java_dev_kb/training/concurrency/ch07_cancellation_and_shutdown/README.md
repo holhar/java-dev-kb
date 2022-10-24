@@ -13,21 +13,15 @@ message that interruption has been requested.
 
 Interruption is usually the most sensible way to implement cancellation.
 
-----
-
 ### Interruption policies
 
 Because each thread has its own interruption policy, you should not interrupt a thread unless you know what 
 interruption means to that thread.
 
-----
-
 ### Responding to interruption
 
 Only code that implements a thread's interruption policy may swallow an interruption request.
 General-purpose task and library code should never swallow interruption requests.
-
-----
 
 ### Cancellation via Future
 
@@ -41,3 +35,21 @@ needed by the program, cancel the task with `Future.cancel`.
 
 Provide lifecycle methods whenever a thread-owning service has a lifetime longer than that of the 
 method that created it.
+
+----
+
+## Handling abnormal thread termination
+
+### Uncaught exception handlers
+
+In long-running applications, always use uncaught exception handlers for all threads that at least
+log the exception.
+
+### Daemon threads
+
+Daemon threads are not a good substitute for properly managing the life-cycle of services within
+an application.
+
+### Finalizers
+
+Avoid finalizers.
