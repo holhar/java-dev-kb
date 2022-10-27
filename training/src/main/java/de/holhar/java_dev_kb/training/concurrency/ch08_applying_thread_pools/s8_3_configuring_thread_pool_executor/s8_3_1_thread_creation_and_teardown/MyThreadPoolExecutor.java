@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * General constructor for ThreadPoolExecutor (just showing it here as a reference).
  */
-public class ThreadPoolExecutor {
+public class MyThreadPoolExecutor {
 
-  public ThreadPoolExecutor(
+  public MyThreadPoolExecutor(
       int corePoolSize,
       int maximumPoolSize,
       long keepAliveTime,

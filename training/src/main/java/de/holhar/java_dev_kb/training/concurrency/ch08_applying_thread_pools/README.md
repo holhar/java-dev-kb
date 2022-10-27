@@ -31,3 +31,11 @@ queueing performance than a fixed thread pool. A fixed size thread pool is a goo
 need to limit the number of concurrent tasks for resource-management purposes, as in a server
 application that accepts requests from network clients and would otherwise be vulnerable to
 overload.
+
+----
+
+## Parallelizing recursive algorithms
+
+Sequential loop iterations are suitable for prallelization when each iteration is independent of
+the others and the work done in each iteration of the loop body is significant enough to offset the
+cost of managing a new task.
