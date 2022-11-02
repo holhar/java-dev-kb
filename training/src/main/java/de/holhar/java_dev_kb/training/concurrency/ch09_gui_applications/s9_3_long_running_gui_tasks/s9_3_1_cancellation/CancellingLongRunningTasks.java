@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch09_gui_applications.s9_3_long_running_gui_tasks;
+package de.holhar.java_dev_kb.training.concurrency.ch09_gui_applications.s9_3_long_running_gui_tasks.s9_3_1_cancellation;
 
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.swing.JButton;
 /**
  * Cancelling a long-running task.
  */
-public class LongRunningTaskWithUserFeedbackAndCancellation {
+public class CancellingLongRunningTasks {
 
   ExecutorService backgroundExec = Executors.newCachedThreadPool();
 
