@@ -8,7 +8,7 @@ The design process for a thread-safe class should include these three basic elem
 * Identify the invariants that constrain the state variables;
 * Establish a policy for managing concurrent access to the object's state.
 
----
+### Gathering synchronization requirements
 
 You cannot ensure thread safety without understanding an object's invariants and post-conditions.
 Constraints on the valid values or state transitions for state variables can create atomicity and encapsulation 

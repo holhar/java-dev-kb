@@ -9,6 +9,7 @@ There are three ways to fix it:
 * Use *synchronization* whenever accessing the state variable.
 
 ----
+
 When designing thread-safe classes, good object-oriented techniques - encapsulation, immutability, and clear 
 specification of invariants - are your best friends.
 
@@ -27,6 +28,8 @@ Thread-safe classes encapsulate any needed synchronization so that clients need 
 Stateless objects are always thread-safe (see StatelessFactorizer#service(...))
 
 ## Atomicity
+
+### Compound actions
 
 Operation A and B are *atomic* with respect to each other if, from the perspective of a thread executing A, when 
 another thread executes B, either all of B has executed or none of it has.

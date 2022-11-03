@@ -1,7 +1,7 @@
 package de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_5_safe_publication;
 
-import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
-import de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_4_immutability.OneValueCache;
+import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_1_what_is_thread_safety.s2_1_1_example_stateless_servlet.AbstractFactorizer;
+import de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_4_immutability.s3_4_2_example_using_volatile.OneValueCache;
 import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;
 
 import javax.servlet.Servlet;

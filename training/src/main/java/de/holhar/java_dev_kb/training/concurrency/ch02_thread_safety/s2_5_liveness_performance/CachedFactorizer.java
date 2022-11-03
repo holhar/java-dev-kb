@@ -1,6 +1,6 @@
 package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_5_liveness_performance;
 
-import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
+import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_1_what_is_thread_safety.s2_1_1_example_stateless_servlet.AbstractFactorizer;
 import de.holhar.java_dev_kb.training.concurrency.utils.GuardedBy;
 import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;
 

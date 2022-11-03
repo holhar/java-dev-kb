@@ -1,6 +1,6 @@
 package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_6_building_a_cache;
 
-import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.AbstractFactorizer;
+import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_1_what_is_thread_safety.s2_1_1_example_stateless_servlet.AbstractFactorizer;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;

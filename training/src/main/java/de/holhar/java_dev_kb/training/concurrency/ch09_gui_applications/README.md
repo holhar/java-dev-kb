@@ -7,8 +7,6 @@
 The _Swing single-threaded rule_: Swing components and models should be created, modified, and
 queried only from the event-dispatching thread.
 
-----
-
 ## Shared data models
 
 ### Split data models

@@ -14,13 +14,9 @@ Whenever you submit to Executor tasks that are not independent, be aware of the 
 thread starvation deadlock, and document any pool sizing or configuration constraints in the code
 or configuration file where the Executor is configured.
 
-----
-
 ## Sizing thread pools
 
     N_threads = N_cpu * U_cpu * (1 + W/C)
-
-----
 
 ## Configuring ThreadPoolExecutor
 
@@ -31,8 +27,6 @@ queueing performance than a fixed thread pool. A fixed size thread pool is a goo
 need to limit the number of concurrent tasks for resource-management purposes, as in a server
 application that accepts requests from network clients and would otherwise be vulnerable to
 overload.
-
-----
 
 ## Parallelizing recursive algorithms
 

@@ -16,7 +16,7 @@ threads must synchronize on a common lock.
 
 (see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_1_visibility.MutableInteger and see de.holhar.java_dev_kb.training.concurrency.ch03_sharing_objects.s3_1_visibility.SynchronizedInteger)
 
-### Volatile variable
+### Volatile variables
 
 Use `volatile` variables only when they simplify implementing and verifying your synchronization policy; avoid using 
 `volatile` variables when verifying correctness would require subtle reasoning about visibility.

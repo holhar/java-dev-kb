@@ -1,7 +1,7 @@
 package de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_3_locking;
 
 import de.holhar.java_dev_kb.training.concurrency.ch02_thread_safety.s2_1_what_is_thread_safety.s2_1_1_example_stateless_servlet.AbstractFactorizer;
-import de.holhar.java_dev_kb.training.concurrency.utils.NotThreadSafe;
+import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;
 
 import javax.servlet.*;
 import java.io.IOException;
@@ -9,17 +9,17 @@ import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * Servlet that attempts to cache its last result without adequate atomicity,
+ * Servlet that caches last result, but with unacceptably poor concurrency.
  * Don't do this.
  */
-@NotThreadSafe
-public class UnsafeCachingFactorizer extends AbstractFactorizer implements Servlet {
+@ThreadSafe
+public class SynchronizedFactorizer extends AbstractFactorizer implements Servlet {
 
     private final AtomicReference<BigInteger> lastNumber = new AtomicReference<>();
     private final AtomicReference<BigInteger[]> lastFactors = new AtomicReference<>();
 
     @Override
-    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+    public synchronized void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         BigInteger i = extractFromRequest(request);
         if (i.equals(lastNumber.get())) {
             encodeIntoResponse(response, lastFactors.get());
