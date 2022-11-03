@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_7;
+package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_7_encapsulating_nonstandard_cancellation;
 
 import de.holhar.java_dev_kb.training.concurrency.utils.ThreadSafe;
 
@@ -19,7 +19,7 @@ public class CancellingExecutor extends ThreadPoolExecutor {
     }
 
     @Override
-    protected<T>RunnableFuture<T> newTaskFor(Callable<T> callable) {
+    protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
         if (callable instanceof CancellableTask) {
             return ((CancellableTask<T>) callable).newTask();
         } else {

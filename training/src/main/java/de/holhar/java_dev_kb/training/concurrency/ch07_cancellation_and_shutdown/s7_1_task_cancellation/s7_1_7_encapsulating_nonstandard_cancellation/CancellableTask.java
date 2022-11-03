@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_7;
+package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_7_encapsulating_nonstandard_cancellation;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.RunnableFuture;

@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation;
+package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_1_interruption;
 
 import java.math.BigInteger;
 import java.util.concurrent.BlockingQueue;

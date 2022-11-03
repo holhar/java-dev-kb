@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation;
+package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_6_dealing_with_non_interruptible_blocking;
 
 import java.io.IOException;
 import java.io.InputStream;

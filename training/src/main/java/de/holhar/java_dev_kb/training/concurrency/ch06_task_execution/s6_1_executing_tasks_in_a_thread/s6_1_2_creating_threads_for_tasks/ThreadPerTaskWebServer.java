@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch06_task_execution.s6_1_executing_tasks_in_a_thread;
+package de.holhar.java_dev_kb.training.concurrency.ch06_task_execution.s6_1_executing_tasks_in_a_thread.s6_1_2_creating_threads_for_tasks;
 
 import java.io.IOException;
 import java.net.ServerSocket;

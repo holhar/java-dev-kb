@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation;
+package de.holhar.java_dev_kb.training.concurrency.ch07_cancellation_and_shutdown.s7_1_task_cancellation.s7_1_3_responding_to_interruption;
 
 import de.holhar.java_dev_kb.training.concurrency.utils.ExceptionUtils;
 import org.springframework.scheduling.config.Task;
@@ -40,6 +40,8 @@ public class TaskInterruptionAndCancellation {
     }
 
     /**
+     * 7.1.4 Example: timed run
+     *
      * Addressing possible unchecked exceptions during task execution - Version 1:
      *
      * Scheduling an interrupt on a borrowed thread.
@@ -54,6 +56,8 @@ public class TaskInterruptionAndCancellation {
     }
 
     /**
+     * 7.1.4 Example: timed run
+     *
      * Addressing possible unchecked exceptions during task execution - Version 2:
      *
      * Interruption a task in a dedicated thread.
@@ -87,6 +91,8 @@ public class TaskInterruptionAndCancellation {
     }
 
     /**
+     * 7.1.5 Cancellation via Future
+     *
      * Addressing possible unchecked exceptions during task execution - Version 3:
      *
      * Cancelling a task using Future.

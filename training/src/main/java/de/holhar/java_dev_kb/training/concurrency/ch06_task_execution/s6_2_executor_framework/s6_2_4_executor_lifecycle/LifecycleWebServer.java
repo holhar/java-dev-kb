@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch06_task_execution.s6_2_executor_framework;
+package de.holhar.java_dev_kb.training.concurrency.ch06_task_execution.s6_2_executor_framework.s6_2_4_executor_lifecycle;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
