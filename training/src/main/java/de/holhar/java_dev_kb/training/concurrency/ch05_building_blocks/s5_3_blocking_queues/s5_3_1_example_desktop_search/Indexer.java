@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_3_blocking_queues;
+package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_3_blocking_queues.s5_3_1_example_desktop_search;
 
 import java.io.File;
 import java.util.concurrent.BlockingQueue;

@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_5_synchronizers;
+package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_5_synchronizers.s5_5_2_future_task;
 
 import de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.utils.DataLoadException;
 import de.holhar.java_dev_kb.training.concurrency.utils.ExceptionUtils;

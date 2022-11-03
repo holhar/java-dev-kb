@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_1_synchronized_collections;
+package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_1_synchronized_collections.s5_1_3_hidden_iterators;
 
 import de.holhar.java_dev_kb.training.concurrency.utils.GuardedBy;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_5_synchronizers;
+package de.holhar.java_dev_kb.training.concurrency.ch05_building_blocks.s5_5_synchronizers.s5_5_4_barriers;
 
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
