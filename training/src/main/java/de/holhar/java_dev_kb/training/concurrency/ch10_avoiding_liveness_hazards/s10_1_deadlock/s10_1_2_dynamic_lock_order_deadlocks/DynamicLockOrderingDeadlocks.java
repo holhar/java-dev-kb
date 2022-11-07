@@ -11,19 +11,21 @@ import de.holhar.java_dev_kb.training.concurrency.ch10_avoiding_liveness_hazards
  */
 public class DynamicLockOrderingDeadlocks {
 
+  private DynamicLockOrderingDeadlocks() { }
+
   /*
    * Warning: deadlock-prone!
    */
-  public void transferMoney(Account fromAccount, Account toAccount, DollarAmount dollarAmount)
+  public static void transferMoney(Account fromAccount, Account toAccount, DollarAmount amount)
       throws InsufficientFundsException {
 
     synchronized (fromAccount) {
       synchronized (toAccount) {
-        if (fromAccount.getBalance().compareTo(dollarAmount) < 0) {
-          throw new InsufficientFundsException("Not enough balance!");
+        if (fromAccount.getBalance().compareTo(amount) < 0) {
+          throw new InsufficientFundsException();
         } else {
-          fromAccount.debit(dollarAmount);
-          toAccount.credit(dollarAmount);
+          fromAccount.debit(amount);
+          toAccount.credit(amount);
         }
       }
     }

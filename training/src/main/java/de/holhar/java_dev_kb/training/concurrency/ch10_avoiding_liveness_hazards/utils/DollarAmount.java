@@ -15,7 +15,7 @@ public class DollarAmount implements Comparable<DollarAmount> {
   }
 
   @Override
-  public int compareTo(DollarAmount dollarAmount) {
-    return this.amount.intValue() - dollarAmount.amount.intValue();
+  public int compareTo(DollarAmount amount) {
+    return this.amount.intValue() - amount.amount.intValue();
   }
 }
