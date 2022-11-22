@@ -14,7 +14,7 @@ lock must also guard the state variables from which the condition predicate is c
 
 ### Waking up too soon
 
-When using condition waits (`Object.wait` or `Condition.wait`:
+When using condition waits (`Object.wait` or `Condition.wait`):
 
 * Always have a condition predicate - some test of object state that must hold before proceeding;
 * Always test the condition predicate before calling `wait`, and again after returning from `wait`;
