@@ -11,7 +11,7 @@ public class CanonicalFormForStateDependentMethods {
   private Lock lock = new ReentrantLock();
 
   void stateDependentMethod() throws InterruptedException {
-    // Condition predicate must be guarded by lock
+    // MyCondition predicate must be guarded by lock
     synchronized(lock) {
       while (!conditionPredicate()) {
         lock.wait();
