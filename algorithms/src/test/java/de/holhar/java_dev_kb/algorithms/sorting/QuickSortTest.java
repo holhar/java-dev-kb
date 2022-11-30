@@ -1,5 +1,6 @@
 package de.holhar.java_dev_kb.algorithms.sorting;
 
+import de.holhar.java_dev_kb.algorithms._deprecated.sorting.QuickSort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
