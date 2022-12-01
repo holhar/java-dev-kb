@@ -19,8 +19,7 @@
     <modules>
         <module>katas</module>
         <module>design-patterns</module>
-        <module>algorithms</module>
-        <module>data-structures</module>
+        <module>data-structures-and-algorithms</module>
         <module>lang-features</module>
         <module>training</module>
     </modules>
