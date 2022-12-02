@@ -1,6 +1,5 @@
-package de.holhar.java_dev_kb.algorithms.sorting;
+package de.holhar.java_dev_kb.data_structures_and_algorithms._deprecated.sorting;
 
-import de.holhar.java_dev_kb.data_structures_and_algorithms._deprecated.sorting.MergeSort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
