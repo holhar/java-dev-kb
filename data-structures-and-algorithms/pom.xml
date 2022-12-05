@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.holhar.java-dev-kb</groupId>
-    <artifactId>data-structures</artifactId>
+    <artifactId>data-structures-and-algorithms</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
