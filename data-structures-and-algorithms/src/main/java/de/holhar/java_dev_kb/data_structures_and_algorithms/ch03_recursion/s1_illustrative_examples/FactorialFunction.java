@@ -2,6 +2,9 @@ package de.holhar.java_dev_kb.data_structures_and_algorithms.ch03_recursion.s1_i
 
 public class FactorialFunction {
 
+  /**
+   * Runs in O(n) time.
+   */
   public static int factorial(int n) throws IllegalArgumentException {
     if (n < 0) {
       throw new IllegalArgumentException();

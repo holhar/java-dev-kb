@@ -5,6 +5,8 @@ public class BinarySearch {
   /**
    * Returns trie if the target value is found in the indicated portion of the data array.
    * This search only considers the array portion from data[low] to data[high] inclusive.
+   *
+   * Runs in O(log n) time.
    */
   public static boolean binarySearch(int[] data, int target, int low, int high) {
     if (low > high) {

@@ -8,7 +8,9 @@ public class DrawRuler {
   private static final Logger logger = LoggerFactory.getLogger(DrawRuler.class);
 
   /**
-   * Draws an English ruler for the given number of inches and major tick length
+   * Draws an English ruler for the given number of inches and major tick length.
+   *
+   * Runs in O(2^n - 1) time.
    */
   public static void drawRuler(int nInches, int majorLength) {
     drawLine(majorLength, 0);             // draw inch 0 line and label

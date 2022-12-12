@@ -1,12 +1,16 @@
-package de.holhar.java_dev_kb.data_structures_and_algorithms.ch03_recursion.s1_illustrative_examples;
+package de.holhar.java_dev_kb.data_structures_and_algorithms.ch03_recursion.s2_further_examples;
 
 import java.io.File;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DiskUsage {
+/**
+ * Generalizing from binary recursion, we define multiple recursion as a process in which a
+ * method may make more than two recursive calls
+ */
+public class MultipleRecursion {
 
-  private static final Logger logger = LoggerFactory.getLogger(DiskUsage.class);
+  private static final Logger logger = LoggerFactory.getLogger(MultipleRecursion.class);
 
   /**
    * Calculates the total dis usage (in bytes) of the portion of the file system rooted at the
@@ -25,5 +29,4 @@ public class DiskUsage {
     logger.info("{}\t{}", total, root);
     return total;
   }
-
 }
