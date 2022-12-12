@@ -1,4 +1,4 @@
-package de.holhar.java_dev_kb.data_structures_and_algorithms.ch03_recursion.s1_foundations;
+package de.holhar.java_dev_kb.data_structures_and_algorithms.ch03_recursion.s1_illustrative_examples;
 
 import java.io.File;
 import org.slf4j.Logger;
