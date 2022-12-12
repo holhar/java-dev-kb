@@ -38,6 +38,7 @@ Our goal is to develop an approach to analyzing the efficiency of algorithms tha
    implementation.
 3. Takes into account all possible inputs.
 
+<a name="counting-primitive-operations"></a>
 #### Counting Primitive Operations
 
 We define a set of primitive operations such as the following:
@@ -271,3 +272,127 @@ algorithm.
     O(n^2 + n) -> O(n^2)
     O(n + log n) -> O(n)
     O(5 * 2^n + 1000n^100) -> O(2^n)
+
+### Examples of Algorithm Analysis
+
+#### Constant-Time Operations
+
+All of the primitive operations, [described above](#counting-primitive-operations), are assumed 
+to run in constant time; formally, we say they run in __O(1)__ time.
+
+#### Finding the Maximum of an Array
+
+    /** Returns the maximum value of a nonempty array of numbers */
+    public static double arrayMax(double[] data) {
+        int n = data.length;
+        double currentMax = data[0];
+        for (int i = 0; i < n; i++) {
+            if (data[i] > currentMax)
+                currentMax = data[i]
+        return currentMax;
+    }
+
+=> Runs in O(n) time
+
+#### Composing Long Strings
+
+    /** Uses repeated concatenation to compose a String with n copies of character c. */
+    public static String repeat1(char c, int n) {
+        String answer = "";
+        for (int i=0; i < n; i++)
+            answer += c;
+        return answer;
+    }
+
+=> Runs in O(n^2) time
+
+#### Three-Way Set Disjointness
+
+    /** Returns true if there is no element comon to all three arrays. */
+    public static boolean disjoint1(int[] groupA, int[] groupB, int[] groupC) {
+        for (int a : groupA)
+            for (int b : groupB)
+                for (int c : groupC)
+                    if ((a == b) && (b == c))
+                        return false;
+        return true;
+    }
+
+=> Runs in O(n^3) time
+
+    /** Returns true if there is no element comon to all three arrays. */
+    public static boolean disjoint2(int[] groupA, int[] groupB, int[] groupC) {
+        for (int a : groupA)
+            for (int b : groupB)
+                if (a == b)
+                    for (int c : groupC)
+                        if ((a == b) && (b == c))
+                            return false;
+        return true;
+    }
+
+=> Runs in O(n^2) time
+
+#### Element Uniqueness
+
+    /** Returns trie if there are no duplicate elements in the array */
+    public static boolean unique1(int[] data) {
+        int n = data.length;
+        for (int i=0; i < n; i++)
+            for (int j=0; j < n; j++)
+                if (data[i] == data[j])
+                    return false;
+        return true;
+    }
+
+=> Runs in O(n^2) time
+
+#### Using Sorting as a Problem-Solving Tool
+
+    /** Returns trie if there are no duplicate elements in the array. */
+    public static boolean unique2(int[] data) {
+        int n = data.length;
+        int[] temp = Arrays.copy(data, n);
+        Arrays.sort(temp);
+        for (int i=0; i < n; i++)
+            if (temp[i] == temp[i+1])
+                return false;
+        return true;
+    }
+
+=> Runs in O(n log n) time
+
+#### Prefix Averages
+
+**A Quadratic-Time Algorithm**
+
+    /** Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j]. */
+    public static double[] prefixAverage1(double[] x) {
+        int n = x.length;
+        double[] a = new double[n];
+        for (int j=0; j < n; j++) {
+            double total = 0;
+            for (int i=0; i <= j; i++)
+                total += x[i];
+            a[j] = total / (j+1);
+        }
+        return a;
+    }
+
+=> Runs in O(n^2) time
+
+**A Linear-Time Algorithm**
+
+    /** Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j]. */
+    public static double[] prefixAverage2(double[] x) {
+        int n = x.length;
+        double[] a = new double[];
+        double total = 0;
+        for (int j=0; j < n; j++) {
+            total += x[j];
+            a[j] = total / (j+1);
+        }
+        return a;
+    }
+
+=> Runs in O(n) time
