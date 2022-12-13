@@ -210,16 +210,4 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
   }
 
   // ----------- end of update methods supported by this class ------------
-
-  // TODO: iterator() and positions() implementation
-  @Override
-  public Iterator<E> iterator() {
-
-    return null;
-  }
-
-  @Override
-  public Iterable<Position<E>> positions() {
-    return null;
-  }
 }
