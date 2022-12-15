@@ -30,7 +30,7 @@ public class SortedPriorityQueue<K,V> extends AbstractPriorityQueue<K,V> {
    */
   @Override
   public Entry<K,V> insert(K key, V value) throws IllegalArgumentException {
-    checkKey(key);
+    checkKey(key);                // auxiliary key-checking method (could throw exception)
     Entry<K,V> newest = new PQEntry<>(key, value);
     Position<Entry<K, V>> walk = list.last();
     // walk backward, looking for smaller key
