@@ -14,7 +14,7 @@ public class HeapPriorityQueue<K,V> extends AbstractPriorityQueue<K,V> {
   /**
    * primary collection of priority queue entries
    */
-  private List<Entry<K,V>> heap = new ArrayList<>();
+  protected final List<Entry<K,V>> heap = new ArrayList<>();
 
   /**
    * Creates an empty priority queue based on the natural ordering its keys.

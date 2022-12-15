@@ -27,12 +27,11 @@ public abstract class AbstractPriorityQueue<K,V> implements PriorityQueue<K,V> {
       return value;
     }
 
-    // utilities not exposed as part of the Entry interface
-    protected void setKey(K key) {
+    public void setKey(K key) {
       this.key = key;
     }
 
-    protected void setValue(V value) {
+    public void setValue(V value) {
       this.value = value;
     }
   }
