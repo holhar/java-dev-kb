@@ -11,9 +11,9 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class MergeSortTest {
+class ArrayBasedMergeSortTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MergeSortTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ArrayBasedMergeSortTest.class);
 
     private final static int SIZE = 7;
     private final static int MAX = 20;
