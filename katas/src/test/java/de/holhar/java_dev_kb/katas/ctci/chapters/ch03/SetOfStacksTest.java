@@ -1,14 +1,13 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class SetOfStacksTest {
 
     @Test
-    public void basicOperations() {
+    void basicOperations() {
         SetOfStacks<String> setOfStacks = new SetOfStacks<>(3);
 
         assertEquals(1, setOfStacks.size());

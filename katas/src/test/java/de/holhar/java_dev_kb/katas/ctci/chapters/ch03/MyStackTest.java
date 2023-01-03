@@ -1,13 +1,16 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 public class MyStackTest {
 
     @Test
-    public void basicStackOperations() {
+    void basicStackOperations() {
         MyStack<Integer> stack = new MyStack<>();
         assertTrue(stack.isEmpty());
         stack.push(10);
@@ -37,7 +40,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void min() {
+    void min() {
         MyStack<Integer> stack = new MyStack<>();
         stack.push(500);
         stack.push(300);
@@ -50,7 +53,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void sort() {
+    void sort() {
         MyStack<Integer> stack = new MyStack<>();
         stack.push(500);
         stack.push(300);

@@ -1,13 +1,15 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 public class QueueViaStacksTest {
 
     @Test
-    public void basicOperations() {
+    void basicOperations() {
         QueueViaStacks<String> queueViaStacks = new QueueViaStacks<>();
         assertTrue(queueViaStacks.isEmpty());
         queueViaStacks.add("a");

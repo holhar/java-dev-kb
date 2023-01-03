@@ -1,17 +1,17 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import de.holhar.java_dev_kb.katas.ctci.chapters.ch03.animals.Animal;
 import de.holhar.java_dev_kb.katas.ctci.chapters.ch03.animals.Cat;
 import de.holhar.java_dev_kb.katas.ctci.chapters.ch03.animals.Dog;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import org.junit.jupiter.api.Test;
 
 public class AnimalShelterTest {
 
     @Test
-    public void basicOperations() {
+    void basicOperations() {
         AnimalShelter<Animal> animalShelter = new AnimalShelter<>();
 
         animalShelter.enqueue(new Dog("Alba"));

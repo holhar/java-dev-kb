@@ -1,14 +1,16 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch03;
 
-import de.holhar.java_dev_kb.katas.ctci.chapters.ch03.MyQueue;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 public class MyQueueTest {
 
-    @Test(expected = IllegalStateException.class)
-    public void basicQueueOperations() {
+    @Test
+    void basicQueueOperations() {
         MyQueue<Integer> queue = new MyQueue<>();
 
         assertTrue(queue.isEmpty());
@@ -23,11 +25,7 @@ public class MyQueueTest {
         assertEquals(Integer.valueOf(200), queue.remove());
         assertTrue(queue.isEmpty());
 
-        try {
-            queue.remove();
-        } catch (IllegalStateException e) {
-            assertEquals("queue is empty", e.getMessage());
-            throw e;
-        }
+        IllegalStateException e = assertThrows(IllegalStateException.class, queue::remove);
+        assertEquals("queue is empty", e.getMessage());
     }
 }
