@@ -18,80 +18,80 @@ public class ArraysAndStringsTest {
     }
 
     @Test
-    public void isUnique_true() {
+    void isUnique_true() {
     }
 
     @Test
-    public void isUnique_withSpaces_true() {
+    void isUnique_withSpaces_true() {
     }
 
     @Test
-    public void isUnique_fail() {
+    void isUnique_fail() {
     }
 
     @Test
-    public void isUnique_withSpaces_fail() {
+    void isUnique_withSpaces_fail() {
     }
 
     @Test
-    public void isPermutation_success() {
+    void isPermutation_success() {
     }
 
     @Test
-    public void isPermutation_fail() {
+    void isPermutation_fail() {
     }
 
     @Test
-    public void urlify() {
+    void urlify() {
     }
 
     @Test
-    public void isPalindromePermutation_success() {
+    void isPalindromePermutation_success() {
         String value = "taco cat";
         boolean result = cut.isPalindromePermutation(value);
         assertTrue(result);
     }
 
     @Test
-    public void isPalindromePermutation_fail() {
+    void isPalindromePermutation_fail() {
         String value = "taco caI";
         boolean result = cut.isPalindromePermutation(value);
         assertFalse(result);
     }
 
     @Test
-    public void isOneAway_successCase1() {
+    void isOneAway_successCase1() {
     }
 
     @Test
-    public void isOneAway_successCase2() {
+    void isOneAway_successCase2() {
     }
 
     @Test
-    public void isOneAway_successCase3() {
+    void isOneAway_successCase3() {
     }
 
     @Test
-    public void isOneAway_failCase1() {
+    void isOneAway_failCase1() {
     }
 
     @Test
-    public void isOneAway_failCase2() {
+    void isOneAway_failCase2() {
     }
 
     @Test
-    public void compression_basicCompression() {
+    void compression_basicCompression() {
     }
 
     @Test
-    public void compression_noCompression() {
+    void compression_noCompression() {
         String value = "shouldNotBeCompresed";
         String result = cut.compressString(value);
         assertEquals(value, result);
     }
 
     @Test
-    public void rotate2x2Matrix() {
+    void rotate2x2Matrix() {
         int dimension = 2;
         int[][] given = new int[dimension][dimension];
         given[0] = new int[]{1, 2};
@@ -109,7 +109,7 @@ public class ArraysAndStringsTest {
     }
 
     @Test
-    public void rotate4x4Matrix() {
+    void rotate4x4Matrix() {
         int dimension = 4;
         int[][] given = new int[dimension][dimension];
         given[0] = new int[]{1, 2, 3, 4};
@@ -131,7 +131,7 @@ public class ArraysAndStringsTest {
     }
 
     @Test
-    public void rotate5x5Matrix() {
+    void rotate5x5Matrix() {
         int dimension = 5;
         int[][] given = new int[dimension][dimension];
         given[0] = new int[]{1, 2, 3, 4, 5};
@@ -155,7 +155,7 @@ public class ArraysAndStringsTest {
     }
 
     @Test
-    public void rotate7x7Matrix() {
+    void rotate7x7Matrix() {
         int dimension = 7;
         int[][] given = new int[dimension][dimension];
         given[0] = new int[]{1, 2, 3, 4, 5, 6, 7};
@@ -183,7 +183,7 @@ public class ArraysAndStringsTest {
     }
 
     @Test
-    public void zero4x4Matrix() {
+    void zero4x4Matrix() {
         int n = 4, m = 3;
         int[][] given = new int[n][m];
         given[0] = new int[]{10, 11, 12, 13};
@@ -205,7 +205,7 @@ public class ArraysAndStringsTest {
     }
 
     @Test
-    public void zero7x6Matrix() {
+    void zero7x6Matrix() {
         int n = 7, m = 6;
         int[][] given = new int[n][m];
         given[0] = new int[]{1, 2, 3, 4, 5, 6};
