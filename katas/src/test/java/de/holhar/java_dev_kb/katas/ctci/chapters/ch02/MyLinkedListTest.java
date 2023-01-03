@@ -10,22 +10,43 @@ class MyLinkedListTest {
 
     @BeforeEach
     public void setup() {
+        list = new MyLinkedList<>();
+        list.add(100);
+        list.add(200);
+        list.add(300);
+        list.add(55);
+        list.add(268);
+        assertEquals(5, list.size());
     }
 
     @AfterEach
     public void tearDown() {
+        list = null;
     }
 
     @Test
     void get() {
+        Integer actual = list.get(0);
+        assertEquals(Integer.valueOf(100), actual);
+        actual = list.get(3);
+        assertEquals(Integer.valueOf(55), actual);
+        actual = list.get(4);
+        assertEquals(Integer.valueOf(268), actual);
     }
 
     @Test
     void getNull() {
+        final MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        final Integer actual = myLinkedList.get(0);
+        assertNull(actual);
     }
 
     @Test
     void delete() {
+        list.delete(3);
+        final Integer actual = list.get(3);
+        assertEquals(Integer.valueOf(268), actual);
+        assertEquals(4, list.size());
     }
 
     @Test
