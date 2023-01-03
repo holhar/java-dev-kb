@@ -1,15 +1,18 @@
 package de.holhar.java_dev_kb.katas.ctci.chapters.ch01;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ArraysAndStringsTest {
 
     private ArraysAndStrings cut;
 
-    @Before
+    @BeforeEach
     public void setup() {
         cut = new ArraysAndStrings();
     }
